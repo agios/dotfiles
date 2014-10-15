@@ -1,0 +1,10 @@
+# https://github.com/cldwalker/hirb/issues/81#issuecomment-46878247
+require 'hirb' rescue nil
+if defined? Hirb
+  old_print = Pry.config.print
+  Pry.config.print = proc do |*args|
+    Hirb::View.view_or_page_output(args[1]) || old_print.call(*args)
+  end
+  Hirb.enable
+end
+

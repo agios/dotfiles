@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ ! -e $HOME/.vim ]; then
+  curl -Lo- https://bit.ly/janus-bootstrap | bash
+fi
+
+if [ ! -e $HOME/.oh-my-zsh ]; then
+  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+  chsh -s $(which zsh)
+fi
+
+cd $HOME/dotfiles && git submodule update --recursive --init

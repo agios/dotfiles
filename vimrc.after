@@ -1,0 +1,174 @@
+" Fonts and colors
+if !has("gui_running")
+  set background=dark
+  "set background=light
+  set t_Co=256
+  "colorscheme zellner
+  "colorscheme herald
+  "hi TabLine        ctermbg=233  ctermfg=245   cterm=none
+  "let g:solarized_termcolors=256
+  "colorscheme solarized
+  if exists("&guicolors")
+    colorscheme alex-guicolors
+    set guicolors
+  else
+    colorscheme alex
+  endif
+else
+  if has("win32") || has("win64") || has("win16")
+    let &guifont="Consolas:h9:cANSI"
+  elseif has("win32unix") || has("win64unix")
+    set guifont=Monospace\ 12
+  "elseif how do we check for macs?
+    "set guifont=Monaco\ 12
+  else
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
+    "set guifont=Ubuntu\ Mono\ for\ Powerline\ 14
+  endif
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  "set guioptions-=m  "remove menubar / pointless if using Ubuntu's Unity
+
+  set background=dark
+  colorscheme alex
+  "set background=light
+  "colorscheme solarized
+  "colorscheme base16-default
+  "colorscheme base16-chalk
+endif
+
+" Vim Airline
+"let g:airline_theme = 'base16'
+
+" Fast editing of the .vimrc.after
+map <leader>e :tabedit ~/.vimrc.after<cr>
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
+
+" Fugitive (git)
+autocmd User Fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \  nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+let NERDTreeQuitOnOpen = 1
+
+let g:ctrlp_custom_ignore = {
+  \ 'file': '(\.(pyc|pyo|rbc|rbo|class|o)|\~)$\',
+  \ 'dir': '\v[\/](\.(git|hg|svn)|(doc|tmp|vendor))$'
+  \ }
+
+" Ruby development
+" TODOS
+map \q i#TODO<SPACE>
+map \w :grep -R --binary-files=without-match --exclude=*~ TODO --exclude=*.html * <CR> :copen <CR>
+" Hashrocket to json syntax conversion
+nmap <silent> <Leader>h :let _s=@/<Bar>:%s/:\([^=,'"]*\) =>/\1:/g<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Delete trailing spaces
+nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Search tweaks
+" Clear last search
+nnoremap <leader><space> :noh<cr>
+" Use regular regex syntax (without vim tweaks)
+nnoremap / /\v
+vnoremap / /\v
+" Global replace by default
+set gdefault
+
+" Use tab to jump between brackets
+"nnoremap <tab> %
+nmap <tab> %
+vmap <tab> %
+
+" Shortcuts
+inoremap jj <ESC>
+"nnoremap ; :
+
+"Omni completion
+imap <C-Space> <C-X><C-O>
+imap <C-@> <C-Space>
+
+"" Indents code to insert red arrows to the left
+"let g:syntastic_enable_signs = 0
+"" Shows mouseover text on the red arrows
+"let g:syntastic_enable_balloons = 1
+"" 0: disabled, 1: auto open/close, 2: auto close only
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_stl_format = '[%E{Err: line: %fe #%e}%B{, }%W{Warn: line: %fw #%w}]'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
+
+nmap <silent> <Leader>r :RunRspecRelated<CR>
+
+" scss.css syntax is wonky for me, use plain scss syntax
+au BufRead,BufNewFile *.scss set filetype=scss
+
+set viewoptions=folds,cursor
+
+" F9 toggles folding
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
+
+set foldmethod=syntax
+autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
+let ruby_fold=1
+let xml_syntax_folding=1
+
+" Tabularize shortcuts
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /[\|\&]*=<CR>
+  vmap <Leader>a= :Tabularize /[\|\&]*=<CR>
+  nmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
+  vmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
+endif
+
+" Window movement
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"let g:skipview_files = [
+            "\ '[EXAMPLE PLUGIN BUFFER]'
+            "\ ]
+"let g:skipview_file_types = ['gitcommit']
+"function! MakeViewCheck()
+    "if has('quickfix') && &buftype =~ 'nofile'
+        "" Buffer is marked as not a file
+        "return 0
+    "endif
+    "if empty(glob(expand('%:p')))
+        "" File does not exist on disk
+        "return 0
+    "endif
+    "if len($TEMP) && expand('%:p:h') == $TEMP
+        "" We're in a temp dir
+        "return 0
+    "endif
+    "if len($TMP) && expand('%:p:h') == $TMP
+        "" Also in temp dir
+        "return 0
+    "endif
+    "if index(g:skipview_file_types, &filetype) >= 0
+        "" File is in filetype skip list
+        "return 0
+    "endif
+    "if index(g:skipview_files, expand('%')) >= 0
+        "" File is in skip list
+        "return 0
+    "endif
+    "return 1
+"endfunction
+"augroup vimrcAutoView
+    "autocmd!
+    "" Autosave & Load Views.
+    "autocmd BufWritePost,BufLeave,WinLeave ?* if MakeViewCheck() | mkview | endif
+    "autocmd BufWinEnter ?* if MakeViewCheck() | silent loadview | endif
+"augroup end
+
+set nowrap

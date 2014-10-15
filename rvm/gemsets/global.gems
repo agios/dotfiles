@@ -1,0 +1,10 @@
+gem-wrappers
+rubygems-bundler
+bundler
+rake
+rvm
+awesome_print
+pry
+pry-doc
+hirb
+gem-ctags

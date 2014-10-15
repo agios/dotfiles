@@ -1,0 +1,15 @@
+[submodule "janus/Vim-Jinja2-Syntax"]
+	path = janus/Vim-Jinja2-Syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax
+[submodule "janus/ag.vim"]
+	path = janus/ag.vim
+	url = https://github.com/rking/ag.vim
+[submodule "janus/editorconfig-vim"]
+	path = janus/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "janus/tabular"]
+	path = janus/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "janus/vim-airline"]
+	path = janus/vim-airline
+	url = https://github.com/bling/vim-airline

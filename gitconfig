@@ -1,0 +1,20 @@
+[user]
+	name = Alexandros Giouzenis
+	email = alexandrosg@gmail.com
+[color]
+	ui = true
+[github]
+	user = agios
+[push]
+	default = simple
+[alias]
+	hist = log --all --pretty=format:\"%C(yellow)%h %ad%Creset | %s%C(auto)%d%Creset [%C(bold blue)%an%Creset]\" --graph --date=short
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	type = cat-file -t
+	dump = cat-file -p
+[rerere]
+	enabled = true
+	autoupdate = true
