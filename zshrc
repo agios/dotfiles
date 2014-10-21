@@ -45,13 +45,13 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails git rvm)
+plugins=(rails git rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/.bin:/usr/local/bin:$PATH
+export PATH="$HOME/.bin:/usr/local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Powerline for zsh
@@ -86,4 +86,4 @@ alias ssh='LC_ALL=C.UTF-8 ssh'
 alias git='LC_ALL=C.UTF-8 git'
 alias cap='LC_ALL=C.UTF-8 cap'
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.rbenv/bin:$PATH"
