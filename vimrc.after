@@ -133,6 +133,21 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Relative line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
+au FocusLost   * :set norelativenumber
+au FocusGained * :set relativenumber
+au InsertEnter * :set norelativenumber
+au InsertLeave * :set relativenumber
+
 "let g:skipview_files = [
             "\ '[EXAMPLE PLUGIN BUFFER]'
             "\ ]
