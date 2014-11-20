@@ -45,7 +45,7 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails git rbenv)
+plugins=(rails git rbenv capistrano)
 
 source $ZSH/oh-my-zsh.sh
 
