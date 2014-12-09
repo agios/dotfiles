@@ -86,4 +86,6 @@ alias ssh='LC_ALL=C.UTF-8 ssh'
 alias git='LC_ALL=C.UTF-8 git'
 alias cap='LC_ALL=C.UTF-8 cap'
 
+alias gclean='git reset --hard && git clean -df'
+
 export PATH="$HOME/.rbenv/bin:$PATH"
