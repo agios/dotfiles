@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ln -sf source/icdiff/icdiff $HOME/.bin/icdiff
+ln -sf source/icdiff/git-icdiff $HOME/.bin/git-icdiff

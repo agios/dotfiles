@@ -1,2 +1,2 @@
-SYMLINK_DIRS="janus squirrel-sql"
-DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles-private $HOME/dotfiles"
+SYMLINK_DIRS="janus squirrel-sql source"
+DOTFILES_DIRS="$HOME/dotfiles $HOME/dotfiles-local $HOME/dotfiles-private"
