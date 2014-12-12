@@ -18,3 +18,5 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[core]
+	excludesfile = /home/agios/.gitignore_global
