@@ -1,17 +1,12 @@
 " Fonts and colors
 if !has("gui_running")
   set background=dark
-  "set background=light
-  set t_Co=256
-  "colorscheme zellner
-  "colorscheme herald
-  "hi TabLine        ctermbg=233  ctermfg=245   cterm=none
-  "let g:solarized_termcolors=256
-  "colorscheme solarized
   if exists("&guicolors")
     colorscheme alex-guicolors
     set guicolors
   else
+    "colorscheme solarized
+    "colorscheme base16-railscasts
     colorscheme alex
   endif
 else
@@ -31,10 +26,6 @@ else
 
   set background=dark
   colorscheme alex
-  "set background=light
-  "colorscheme solarized
-  "colorscheme base16-default
-  "colorscheme base16-chalk
 endif
 
 " Vim Airline

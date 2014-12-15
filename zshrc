@@ -53,4 +53,9 @@ alias cap='LC_ALL=C.UTF-8 cap'
 
 alias gclean='git reset --hard && git clean -df'
 
+# Set terminal to 256 colors if using gnome-terminal
+if [[ "$COLORTERM" == "gnome-terminal" && "$TERM" =~ xterm.* ]]; then
+  export TERM=gnome-256color
+fi
+
 export PATH="$HOME/.rbenv/bin:$PATH"
