@@ -1,0 +1,11 @@
+#!/bin/bash
+
+find ~ -type l 2>/dev/null | while read l; do
+  if [ ! -e "$l" ]; then
+    target=$(readlink $l)
+    if [[ "$target" == ${HOME}"/dotfiles"* ]]; then
+      rm $l
+    fi
+  fi
+done
+
