@@ -6,7 +6,7 @@
 [github]
 	user = agios
 [push]
-	default = simple
+	default = upstream
 [alias]
 	hist = log --all --pretty=format:\"%C(yellow)%h %ad%Creset | %s%C(auto)%d%Creset [%C(bold blue)%an%Creset]\" --graph --date=short
 	co = checkout
