@@ -1,2 +1,3 @@
 SYMLINK_DIRS="janus squirrel-sql source antigen"
 DOTFILES_DIRS="$HOME/dotfiles $HOME/dotfiles-local $HOME/dotfiles-private"
+EXCLUDES="Makefile"
