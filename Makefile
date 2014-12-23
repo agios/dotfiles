@@ -1,33 +1,38 @@
 DOTFILES_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+RCM_TMP := $(DOTFILES_DIR)tmp/rcm
+RCM_BIN := $(RCM_TMP)/rcm/bin
 RCUP := $(shell which rcup)
+ifndef RCUP
+RCUP := $(RCM_BIN)/rcup
+endif
 RCDN := $(shell which rcdn)
-RCM_VERSION := "1.2.3"
+ifndef RCDN
+RCDN := $(RCM_BIN)/rcdn
+endif
+RCM_VERSION := 1.2.3
 
-default: update clean
+default: update
 
 $(HOME)/.rcrc:
 	@ln -s $(DOTFILES_DIR)/rcrc $(HOME)/.rcrc
 
-rcm:
-ifndef RCUP
-	@cd /tmp && wget https://thoughtbot.github.io/rcm/dist/rcm-$(RCM_VERSION).tar.gz
-	@cd /tmp && tar -xvf rcm-$(RCM_VERSION).tar.gz
-	@cd /tmp/rcm-$(RCM_VERSION) && ./configure --prefix=/tmp/rcm  && $(MAKE) && $(MAKE) install
-endif
+$(RCM_TMP):
+	@mkdir -p $(RCM_TMP)
 
-rcup: rcm $(HOME)/.rcrc
-ifndef RCUP
-	PATH=/tmp/rcm/bin:$(PATH) rcup -f
-else
-	$(RCUP) -f
-endif
+$(RCM_TMP)/rcm-$(RCM_VERSION).tar.gz: | $(RCM_TMP)
+	@cd $(RCM_TMP) && wget https://thoughtbot.github.io/rcm/dist/rcm-$(RCM_VERSION).tar.gz
 
-rcdn: rcm
-ifndef RCDN
-	PATH=/tmp/rcm/bin:$(PATH) rcdn
-else
-	$(RCDN)
-endif
+$(RCM_TMP)/rcm-$(RCM_VERSION): | $(RCM_TMP)/rcm-$(RCM_VERSION).tar.gz
+	@cd $(RCM_TMP) && tar -xvf rcm-$(RCM_VERSION).tar.gz
+
+$(RCM_BIN)/rcup $(RCM_BIN)/rcdn: | $(RCM_TMP)/rcm-$(RCM_VERSION)
+	@cd $(RCM_TMP)/rcm-$(RCM_VERSION) && ./configure --prefix=$(RCM_TMP)/rcm && $(MAKE) && $(MAKE) install
+
+rcup: | $(RCUP) $(HOME)/.rcrc
+	PATH=$(RCM_BIN):$(PATH) $(RCUP) -f
+
+rcdn: | $(RCDN)
+	PATH=$(RCM_BIN):$(PATH) $(RCDN)
 
 latest:
 	@cd $(DOTFILES_DIR) && git pull
@@ -35,6 +40,5 @@ latest:
 update: latest rcup
 
 clean:
-	@rm -rf /tmp/rcm-$(RCM_VERSION)
-	@rm -rf /tmp/rcm
+	@rm -rf $(RCM_TMP)
 
