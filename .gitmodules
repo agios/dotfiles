@@ -28,3 +28,6 @@
 [submodule "janus/csapprox"]
 	path = janus/csapprox
 	url = https://github.com/godlygeek/csapprox
+[submodule "janus/vim-tmux-navigator"]
+	path = janus/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git

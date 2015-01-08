@@ -118,12 +118,6 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
 endif
 
-" Window movement
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " Relative line numbers
 function! NumberToggle()
   if(&relativenumber == 1)
