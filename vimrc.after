@@ -132,6 +132,11 @@ function! NumberToggle()
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
+" highlight the 81st column of wide lines...
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+set relativenumber
 au FocusLost   * :set norelativenumber
 au FocusGained * :set relativenumber
 au InsertEnter * :set norelativenumber
