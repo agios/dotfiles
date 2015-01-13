@@ -28,6 +28,9 @@ antigen bundle capistrano
 #antigen bundle node
 #antigen bundle npm
 
+# Various
+antigen bundle vagrant
+
 # Tell antigen that you're done.
 antigen apply
 
