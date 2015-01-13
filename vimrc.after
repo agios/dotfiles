@@ -75,10 +75,6 @@ set gdefault
 nmap <tab> %
 vmap <tab> %
 
-" Shortcuts
-inoremap jj <ESC>
-"nnoremap ; :
-
 "Omni completion
 imap <C-Space> <C-X><C-O>
 imap <C-@> <C-Space>
@@ -104,6 +100,12 @@ inoremap <F9> <C-O>za
 nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
+
+" Disable arrow keys for movement
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 set foldmethod=syntax
 autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
