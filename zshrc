@@ -63,4 +63,10 @@ if [[ "$COLORTERM" == "gnome-terminal" && "$TERM" =~ xterm.* ]]; then
   export TERM=gnome-256color
 fi
 
+if [[ $- == *i* ]]; then # Running in an interactive shell
+  # Disable XON/XOFF flow control with C-S/C-Q
+  stty -ixon
+  stty stop undef
+fi
+
 export PATH="$HOME/.rbenv/bin:$PATH"
