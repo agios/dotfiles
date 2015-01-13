@@ -1,0 +1,36 @@
+# ~/.tmuxinator/ncp.yml
+
+name: ncp
+root: ~/projects/navarino/ncp
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - editor:
+      layout: ec62,191x54,0,0{101x54,0,0,0,89x54,102,0[89x26,102,0,3,89x27,102,27,4]}
+      panes:
+        - vim
+        - guard
+        - rails s
+  #- editor:
+      #layout: even-horizontal
+      #panes:
+        #- vim
+        #- guard
+  #- editor: vim
+  #- server: rails s
+  - console: rails c
+  - shell:

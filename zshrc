@@ -11,6 +11,8 @@ antigen bundle git
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z # jump around!
+antigen bundle tmux
+antigen bundle tmuxinator
 
 # Ruby
 antigen bundle rbenv
