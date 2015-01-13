@@ -51,6 +51,10 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/](\.(git|hg|svn)|(doc|tmp|vendor))$'
   \ }
 
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
+
 " Ruby development
 " TODOS
 map \q i#TODO<SPACE>
