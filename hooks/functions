@@ -1,0 +1,31 @@
+#!/bin/sh
+
+git_clone_or_update() { #path, repo
+  local path=$1
+  local repo=$2
+  if [ ! -e $path ]; then
+    git clone $repo $path
+  else
+    cd $path && git pull
+  fi
+}
+
+not_cmd() {
+  !($($1 > /dev/null 2>&1))
+}
+
+check_for() {
+  local package=$1
+  #check_cmd="${2:-$1 --version}"
+  local check_cmd="${2:-dpkg-query -s $1}"
+  if not_cmd "$check_cmd"; then
+    sudo apt-get install -y $package
+  fi
+}
+
+check_all() {
+  for p in "$@"; do
+    check_for "$p"
+  done
+}
+

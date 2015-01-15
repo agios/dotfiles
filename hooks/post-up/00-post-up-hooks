@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. "`dirname \"$0\"`/../functions"
+
+if ls $HOME/.rcm-hooks/post-up/* > /dev/null 2>&1; then
+  for s in `ls $HOME/.rcm-hooks/post-up/*`; do
+    . $s
+  done
+fi
+
