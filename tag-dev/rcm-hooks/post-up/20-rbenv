@@ -1,0 +1,30 @@
+#!/bin/sh
+
+git_clone_or_update "$HOME/.rbenv/plugins/bundler" "https://github.com/carsomyr/rbenv-bundler.git"
+git_clone_or_update "$HOME/.rbenv/plugins/rbenv-gem-rehash" "https://github.com/sstephenson/rbenv-gem-rehash.git"
+git_clone_or_update "$HOME/.rbenv/plugins/ruby-build" "https://github.com/sstephenson/ruby-build.git"
+
+#ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
+ruby_version="2.2.0"
+
+if !(rbenv versions | grep "$ruby_version" > /dev/null); then
+  # Ensure system deps are installed
+  sudo apt-get build-dep -y ruby1.9.3
+
+  rbenv install -s "$ruby_version"
+  rbenv global "$ruby_version"
+  rbenv rehash
+
+  gem update --system
+  gem install bundler --no-document --pre
+
+  number_of_cores=$(nproc)
+  bundle config --global jobs $((number_of_cores - 1))
+
+  # Default gems
+  gem install pry --no-document
+  gem install pry-byebug --no-document
+  gem install awesome_print --no-document
+  gem install guard --no-document
+fi
+
