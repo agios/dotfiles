@@ -14,18 +14,34 @@ not_cmd() {
   !($($1 > /dev/null 2>&1))
 }
 
-check_for() {
+check_package() {
   local package=$1
   #check_cmd="${2:-$1 --version}"
   local check_cmd="${2:-dpkg-query -s $1}"
   if not_cmd "$check_cmd"; then
+    echo Installing package $package
     sudo apt-get install -y $package
   fi
 }
 
-check_all() {
+check_all_packages() {
   for p in "$@"; do
-    check_for "$p"
+    check_package "$p"
+  done
+}
+
+check_gem() {
+  local gem=$1
+  local check_cmd="${2:-gem which $1}"
+  if not_cmd "$check_cmd"; then
+    echo Installing gem $gem
+    gem install $gem #--no-document
+  fi
+}
+
+check_all_gems() {
+  for g in "$@"; do
+    check_gem "$g"
   done
 }
 

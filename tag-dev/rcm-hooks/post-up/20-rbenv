@@ -20,11 +20,5 @@ if !(rbenv versions | grep "$ruby_version" > /dev/null); then
 
   number_of_cores=$(nproc)
   bundle config --global jobs $((number_of_cores - 1))
-
-  # Default gems
-  gem install pry --no-document
-  gem install pry-byebug --no-document
-  gem install awesome_print --no-document
-  gem install guard --no-document
 fi
 
