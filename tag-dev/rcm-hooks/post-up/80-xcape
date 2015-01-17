@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if !(which xcape > /dev/null); then
+  # Download xcape and install it in ~/.bin
+  git clone https://github.com/alols/xcape.git /tmp/xcape
+  sudo apt-get install -y gcc make pkg-config libx11-dev libxtst-dev libxi-dev
+  cd /tmp/xcape
+  make && cp /tmp/xcape/xcape ~/.bin/xcape
+  rm -rf /tmp/xcape
+
+  # For gnome users: Caps_Lock -> Control, Both_Shift_Keys -> Caps_Lock
+  dconf write /org/gnome/desktop/input-sources/xkb-options "['shift:both_capslock', 'caps:ctrl_modifier']"
+fi
+
