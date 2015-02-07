@@ -34,3 +34,6 @@
 [submodule "tag-dev/rbenv"]
 	path = tag-dev/rbenv
 	url = https://github.com/sstephenson/rbenv.git
+[submodule "janus/vim-preview"]
+	path = janus/vim-preview
+	url = https://github.com/greyblake/vim-preview
