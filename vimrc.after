@@ -92,10 +92,11 @@ imap <C-@> <C-Space>
 "let g:syntastic_stl_format = '[%E{Err: line: %fe #%e}%B{, }%W{Warn: line: %fw #%w}]'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
-nmap <silent> <Leader>r :RunRspecRelated<CR>
-
 " scss.css syntax is wonky for me, use plain scss syntax
 au BufRead,BufNewFile *.scss set filetype=scss
+
+" refresh with <C-L> which has been mapped
+nnoremap <leader>r <C-L>
 
 set viewoptions=folds,cursor
 
