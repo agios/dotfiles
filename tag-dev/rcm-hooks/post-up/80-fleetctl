@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if !(which fleetctl > /dev/null); then
+  # Download fleet and install it in ~/.bin
+  git clone https://github.com/coreos/fleet /tmp/fleet
+  sudo apt-get install -y gccgo-go
+  cd /tmp/fleet
+  ./build && cp /tmp/fleet/bin/fleetctl ~/.bin/fleetctl
+  rm -rf /tmp/fleet
+fi
+
