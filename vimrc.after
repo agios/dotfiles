@@ -90,6 +90,8 @@ imap <C-@> <C-Space>
 "" 0: disabled, 1: auto open/close, 2: auto close only
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_stl_format = '[%E{Err: line: %fe #%e}%B{, }%W{Warn: line: %fw #%w}]'
+let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
 " scss.css syntax is wonky for me, use plain scss syntax
