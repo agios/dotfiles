@@ -37,3 +37,6 @@
 [submodule "janus/vim-preview"]
 	path = janus/vim-preview
 	url = https://github.com/greyblake/vim-preview
+[submodule "janus/vim-systemd-syntax"]
+	path = janus/vim-systemd-syntax
+	url = https://github.com/Matt-Deacalion/vim-systemd-syntax
