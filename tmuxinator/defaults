@@ -1,0 +1,23 @@
+# Tmuxinator defaults file, eg:
+#
+# <%= File.read("#{ENV["HOME"]}/.tmuxinator/defaults") %>
+# <<: *rails-defaults
+
+rails-defaults: &rails-defaults
+  pre: rbenv bundler on
+  windows:
+    #- editor:
+        #layout: ec62,191x54,0,0{101x54,0,0,0,89x54,102,0[89x26,102,0,3,89x27,102,27,4]}
+        #panes:
+          #- vim
+          #- guard
+          #- rails s
+    - editor: vim
+    - rails:
+        panes:
+          - rails s
+          - rails c
+    - shell:
+        panes:
+          - guard
+          -
