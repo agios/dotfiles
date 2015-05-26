@@ -44,6 +44,10 @@ autocmd User Fugitive
   \ endif
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" GitGutter
+" Re-enable default mapping
+nmap <Leader>hs <Plug>GitGutterStageHunk
+
 let NERDTreeQuitOnOpen = 1
 
 let g:ctrlp_custom_ignore = {
