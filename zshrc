@@ -57,6 +57,7 @@ alias git='LC_ALL=C.UTF-8 git'
 alias cap='LC_ALL=C.UTF-8 cap'
 
 alias gclean='git reset --hard && git clean -df'
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 # Set terminal to 256 colors if using an xterm compatible term
 if [[ "$TERM" =~ xterm.* ]]; then
