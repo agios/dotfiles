@@ -71,4 +71,5 @@ if [[ $- == *i* ]]; then # Running in an interactive shell
   stty stop undef
 fi
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH="$HOME/.rbenv/bin:$PATH:$GOPATH/bin"
