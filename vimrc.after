@@ -87,16 +87,7 @@ vmap <tab> %
 imap <C-Space> <C-X><C-O>
 imap <C-@> <C-Space>
 
-"" Indents code to insert red arrows to the left
-"let g:syntastic_enable_signs = 0
-"" Shows mouseover text on the red arrows
-"let g:syntastic_enable_balloons = 1
-"" 0: disabled, 1: auto open/close, 2: auto close only
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_stl_format = '[%E{Err: line: %fe #%e}%B{, }%W{Warn: line: %fw #%w}]'
-let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
+autocmd! BufWritePost * Neomake
 
 " scss.css syntax is wonky for me, use plain scss syntax
 au BufRead,BufNewFile *.scss set filetype=scss
