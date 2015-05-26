@@ -4,8 +4,7 @@ git_clone_or_update "$HOME/.rbenv/plugins/bundler" "https://github.com/carsomyr/
 git_clone_or_update "$HOME/.rbenv/plugins/rbenv-gem-rehash" "https://github.com/sstephenson/rbenv-gem-rehash.git"
 git_clone_or_update "$HOME/.rbenv/plugins/ruby-build" "https://github.com/sstephenson/ruby-build.git"
 
-#ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
-ruby_version="2.2.0"
+ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
 
 if !(rbenv versions | grep "$ruby_version" > /dev/null); then
   # Ensure system deps are installed
