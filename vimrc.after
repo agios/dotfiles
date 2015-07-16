@@ -95,6 +95,9 @@ au BufRead,BufNewFile *.scss set filetype=scss
 " refresh with <C-L> which has been mapped
 nnoremap <leader>r <C-L>
 
+nmap <leader>o :only<CR>
+vmap <leader>o :only<CR>
+
 " Disable arrow keys for movement
 noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
