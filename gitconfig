@@ -8,7 +8,7 @@
 [push]
 	default = upstream
 [alias]
-	hist = log --all --pretty=format:\"%C(yellow)%h %ad%Creset | %s%C(auto)%d%Creset [%C(bold blue)%an%Creset]\" --graph --date=short
+	hist = log --all --pretty=format:\"%C(yellow)%h%Creset -%C(auto)%d%Creset %s% Cgreen(%cr) %C(bold blue)<%an>%Creset\" --graph --date=short
 	co = checkout
 	ci = commit
 	st = status
