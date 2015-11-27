@@ -1,41 +1,33 @@
-" Fonts and colors
-if !has("gui_running")
-  set background=dark
-  if exists("&guicolors")
-    colorscheme alex-guicolors
-    set guicolors
+execute 'runtime!' 'plugins.vim'
+execute 'runtime!' 'style.vim'
+
+" Settings for YouCompleteMe + UltiSnips
+let g:ycm_key_list_select_completion=["<tab>"]
+let g:ycm_key_list_previous_completion=["<S-tab>"]
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsExpandTrigger="<nop>"
+let g:ulti_expand_or_jump_res = 0
+function! <SID>ExpandSnippetOrReturn()
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res > 0
+    return snippet
   else
-    "colorscheme solarized
-    "colorscheme base16-railscasts
-    colorscheme alex
+    return "\<CR>"
   endif
-else
-  if has("win32") || has("win64") || has("win16")
-    let &guifont="Consolas:h9:cANSI"
-  elseif has("win32unix") || has("win64unix")
-    set guifont=Monospace\ 12
-  "elseif how do we check for macs?
-    "set guifont=Monaco\ 12
-  else
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
-    "set guifont=Ubuntu\ Mono\ for\ Powerline\ 14
-  endif
-  set guioptions-=T  "remove toolbar
-  set guioptions-=r  "remove right-hand scroll bar
-  "set guioptions-=m  "remove menubar / pointless if using Ubuntu's Unity
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
 
-  set background=dark
-  colorscheme alex
-endif
+" Fast editing of init.vim
+map <leader>e :vsp ~/.config/nvim/init.vim<cr>
+autocmd! bufwritepost init.vim execute 'runtime!' 'init.vim'
 
-" Vim Airline
-"let g:airline_theme = 'base16'
+" Fast editing of plugins.vim
+map <leader>p :vsp ~/.config/nvim/plugins.vim<cr>
+autocmd! bufwritepost plugins.vim execute 'runtime!' 'plugins.vim'
 
-" Fast editing of the .vimrc.after
-map <leader>e :tabedit ~/.vimrc.after<cr>
-
-" When vimrc is edited, reload it
-autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
+map <leader>n :NERDTreeToggle<cr>
 
 " Fugitive (git)
 autocmd User Fugitive
@@ -64,7 +56,8 @@ autocmd Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
 map \q i#TODO<SPACE>
 map \w :grep -R --binary-files=without-match --exclude=*~ TODO --exclude=*.html * <CR> :copen <CR>
 " Hashrocket to json syntax conversion
-nmap <silent> <Leader>h :let _s=@/<Bar>:%s/:\([^=,'"]*\) =>/\1:/g<Bar>:let @/=_s<Bar>:nohl<CR>
+nmap <silent> <Leader>h :let _s=@/<Bar>:%s/:\([^=,]*\) =>/\1:/g<Bar>:let @/=_s<Bar>:nohl<CR>
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " Delete trailing spaces
 nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -72,9 +65,11 @@ nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Search tweaks
 " Clear last search
 nnoremap <leader><space> :noh<cr>
+
 " Use regular regex syntax (without vim tweaks)
 nnoremap / /\v
 vnoremap / /\v
+
 " Global replace by default
 set gdefault
 
@@ -82,10 +77,6 @@ set gdefault
 "nnoremap <tab> %
 nmap <tab> %
 vmap <tab> %
-
-"Omni completion
-imap <C-Space> <C-X><C-O>
-imap <C-@> <C-Space>
 
 autocmd! BufWritePost * Neomake
 
@@ -187,4 +178,3 @@ au InsertLeave * :set relativenumber
     "autocmd BufWritePost,BufLeave,WinLeave ?* if MakeViewCheck() | mkview | endif
     "autocmd BufWinEnter ?* if MakeViewCheck() | silent loadview | endif
 "augroup end
-

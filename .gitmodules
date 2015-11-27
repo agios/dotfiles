@@ -1,51 +1,9 @@
-[submodule "janus/Vim-Jinja2-Syntax"]
-	path = janus/Vim-Jinja2-Syntax
-	url = https://github.com/Glench/Vim-Jinja2-Syntax
-[submodule "janus/ag.vim"]
-	path = janus/ag.vim
-	url = https://github.com/rking/ag.vim
-[submodule "janus/editorconfig-vim"]
-	path = janus/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim
-[submodule "janus/tabular"]
-	path = janus/tabular
-	url = https://github.com/godlygeek/tabular
-[submodule "janus/vim-airline"]
-	path = janus/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule "janus/vim-ps1"]
-	path = janus/vim-ps1
-	url = https://github.com/PProvost/vim-ps1
-[submodule "janus/vim-ansible-yaml"]
-	path = janus/vim-ansible-yaml
-	url = https://github.com/chase/vim-ansible-yaml
 [submodule "bin/source/icdiff"]
 	path = bin/source/icdiff
 	url = https://github.com/jeffkaufman/icdiff.git
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
-[submodule "janus/csapprox"]
-	path = janus/csapprox
-	url = https://github.com/godlygeek/csapprox
-[submodule "janus/vim-tmux-navigator"]
-	path = janus/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator.git
 [submodule "tag-dev/rbenv"]
 	path = tag-dev/rbenv
 	url = https://github.com/sstephenson/rbenv.git
-[submodule "janus/vim-preview"]
-	path = janus/vim-preview
-	url = https://github.com/greyblake/vim-preview
-[submodule "janus/vim-systemd-syntax"]
-	path = janus/vim-systemd-syntax
-	url = https://github.com/Matt-Deacalion/vim-systemd-syntax
-[submodule "janus/vim-toml"]
-	path = janus/vim-toml
-	url = https://github.com/cespare/vim-toml
-[submodule "janus/YouCompleteMe"]
-	path = janus/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "janus/neomake"]
-	path = janus/neomake
-	url = https://github.com/benekastah/neomake.git

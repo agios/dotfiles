@@ -1,6 +1,0 @@
-#!/bin/sh
-
-if [ ! -e $HOME/.vim ]; then
-  curl -Lo- https://bit.ly/janus-bootstrap | bash
-fi
-
