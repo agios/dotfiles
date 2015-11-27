@@ -20,6 +20,10 @@ antigen bundle rails
 antigen bundle capistrano
 #antigen bundle heroku
 
+# Docker
+antigen bundle docker
+antigen bundle docker-compose
+
 # Python
 #antigen bundle pip
 #antigen bundle python
