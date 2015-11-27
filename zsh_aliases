@@ -2,8 +2,9 @@
 eval "$(hub alias -s)"
 alias gclean='git reset --hard && git clean -df'
 alias gh='git hist'
+alias gd='git icdiff'
 
-alias diff="colordiff"
+alias diff="icdiff"
 eval "$(thefuck --alias)"
 alias myip="wget http://ifconfig.me/ip -O - -q ; echo"
 alias webserver="python -m SimpleHTTPServer"
