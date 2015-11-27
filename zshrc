@@ -33,6 +33,9 @@ antigen bundle capistrano
 # Various
 antigen bundle vagrant
 
+# Path for custom completions
+fpath=(~/.zsh/completion $fpath)
+
 # Tell antigen that you're done.
 antigen apply
 
@@ -50,6 +53,8 @@ export PATH="$HOME/.bin:/usr/local/bin:$PATH"
 # Aliases
 alias gclean='git reset --hard && git clean -df'
 eval "$(thefuck --alias)"
+
+eval "$(hub alias -s)"
 
 # Set terminal to 256 colors if using an xterm compatible term
 if [[ "$TERM" =~ xterm.* ]]; then
