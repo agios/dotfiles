@@ -1,0 +1,25 @@
+# Git
+eval "$(hub alias -s)"
+alias gclean='git reset --hard && git clean -df'
+alias gh='git hist'
+
+alias diff="colordiff"
+eval "$(thefuck --alias)"
+alias myip="wget http://ifconfig.me/ip -O - -q ; echo"
+alias webserver="python -m SimpleHTTPServer"
+
+# Backward search with patterns
+bindkey '^r' history-incremental-pattern-search-backward
+
+# Colorful man
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}

@@ -28,6 +28,7 @@ antigen bundle docker-compose
 #antigen bundle pip
 #antigen bundle python
 #antigen bundle virtualenv
+#antigen bundle virtualenvwrapper
 
 # Node
 #antigen bundle coffee
@@ -37,13 +38,8 @@ antigen bundle docker-compose
 # Various
 antigen bundle vagrant
 
-# Path for custom completions
-fpath=(~/.zsh/completion $fpath)
-
 # Tell antigen that you're done.
 antigen apply
-
-export PATH="$HOME/.bin:/usr/local/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -55,21 +51,10 @@ export PATH="$HOME/.bin:/usr/local/bin:$PATH"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Aliases
-alias gclean='git reset --hard && git clean -df'
-eval "$(thefuck --alias)"
-
-eval "$(hub alias -s)"
-
-# Set terminal to 256 colors if using an xterm compatible term
-if [[ "$TERM" =~ xterm.* ]]; then
-  export TERM=gnome-256color
-fi
+[ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
 
 if [[ $- == *i* ]]; then # Running in an interactive shell
   # Disable XON/XOFF flow control with C-S/C-Q
   stty -ixon
   stty stop undef
 fi
-
-export GOPATH=$HOME/go
-export PATH="$HOME/.rbenv/bin:$PATH:$GOPATH/bin"
