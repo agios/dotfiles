@@ -49,6 +49,7 @@ let g:ctrlp_custom_ignore = {
 
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
 
 " Ruby development
@@ -109,16 +110,14 @@ let ruby_fold=1
 let xml_syntax_folding=1
 
 " Tabularize shortcuts
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /[\|\&]*=<CR>
-  vmap <Leader>a= :Tabularize /[\|\&]*=<CR>
-  nmap <Leader>a> :Tabularize /=>/r1c1l0<CR>
-  vmap <Leader>a> :Tabularize /=>/r1c1l0<CR>
-  nmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
-  vmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
-  nmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
-  vmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
-endif
+nmap <Leader>a= :Tabularize /[\|\&]*=<CR>
+vmap <Leader>a= :Tabularize /[\|\&]*=<CR>
+nmap <Leader>a> :Tabularize /=>/r1c1l0<CR>
+vmap <Leader>a> :Tabularize /=>/r1c1l0<CR>
+nmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
+vmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
+nmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
+vmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
 
 " Relative line numbers
 function! NumberToggle()
@@ -135,6 +134,7 @@ highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
 set nowrap
+set number
 set relativenumber
 au FocusLost   * :set norelativenumber
 au FocusGained * :set relativenumber

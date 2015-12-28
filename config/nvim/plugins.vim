@@ -12,6 +12,7 @@ Plug 'godlygeek/csapprox'
 " Editing
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
@@ -38,6 +39,8 @@ Plug 'airblade/vim-gitgutter'
 " Ruby & Rails
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'kchmck/vim-coffee-script'
+Plug 'slim-template/vim-slim'
 
 Plug 'ap/vim-css-color'
 Plug 'Glench/Vim-Jinja2-Syntax'
