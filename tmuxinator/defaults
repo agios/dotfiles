@@ -21,3 +21,26 @@ rails-defaults: &rails-defaults
         panes:
           - guard
           -
+
+rails-docker-defaults: &rails-docker-defaults
+  windows:
+    - editor: vim
+    - rails: docker-compose up
+    - test:
+        panes:
+          - docker-compose run app guard
+          - docker-compose run app rails c
+    - shell:
+
+rails-engine-defaults: &rails-engine-defaults
+  pre: rbenv bundler on
+  windows:
+    - editor: vim
+    - rails:
+        panes:
+          - cd test/dummy && rails s
+          - cd test/dummy && rails c
+    - shell:
+        panes:
+          - guard
+          -
