@@ -1,4 +1,4 @@
 #!/bin/sh
 
-pip install --upgrade neovim
+pip install --user --upgrade neovim
 
