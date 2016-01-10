@@ -79,6 +79,9 @@ set gdefault
 nmap <tab> %
 vmap <tab> %
 
+" Select last pasted text with gp
+nnoremap gp `[v`]
+
 autocmd! BufWritePost * Neomake
 
 " scss.css syntax is wonky for me, use plain scss syntax
