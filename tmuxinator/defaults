@@ -28,7 +28,7 @@ rails-docker-defaults: &rails-docker-defaults
     - rails: docker-compose up
     - test:
         panes:
-          - docker-compose run app guard
+          - docker-compose run -p 35729:35729 app guard
           - docker-compose run app rails c
     - shell:
 
