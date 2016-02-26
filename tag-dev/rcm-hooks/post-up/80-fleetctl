@@ -5,7 +5,7 @@ if !(which fleetctl > /dev/null); then
   git clone https://github.com/coreos/fleet /tmp/fleet
   sudo apt-get install -y gccgo-go
   cd /tmp/fleet
-  ./build && cp /tmp/fleet/bin/fleetctl ~/.bin/fleetctl
+  ./build && cp /tmp/fleet/bin/fleetctl ~/bin/fleetctl
   rm -rf /tmp/fleet
 fi
 

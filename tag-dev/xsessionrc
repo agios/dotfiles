@@ -1,1 +1,1 @@
-$HOME/.bin/xcape -e 'Caps_Lock=Escape'
+$HOME/bin/xcape -e 'Caps_Lock=Escape'

@@ -3,7 +3,7 @@ skip_global_compinit=1
 # Path for custom completions
 fpath=(~/.zsh/completion $fpath)
 
-PATH="$HOME/.bin:$PATH"
+PATH="$HOME/bin:$PATH"
 
 export GOPATH=$HOME/go
 PATH="$PATH:$GOPATH/bin"
