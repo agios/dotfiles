@@ -1,5 +1,0 @@
-let g:airline_powerline_fonts = 1
-"call janus#disable_plugin('nerdtree')
-"call janus#disable_plugin('tagbar')
-call janus#disable_plugin('supertab')
-call janus#disable_plugin('syntastic')

@@ -20,7 +20,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 
 " Coding
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } "is sometimes slow
 Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rking/ag.vim'
@@ -31,6 +31,7 @@ Plug 'edsono/vim-matchit'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
 
 " Git
 Plug 'tpope/vim-fugitive'
