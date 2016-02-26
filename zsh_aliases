@@ -24,3 +24,7 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
+
+# Useful to notify long-running scripts have terminated
+alias alarm='ogg123 -q /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga'
+alias bing='ogg123 -q /usr/share/sounds/freedesktop/stereo/complete.oga'
