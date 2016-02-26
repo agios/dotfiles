@@ -10,6 +10,9 @@ PATH="$PATH:$GOPATH/bin"
 
 export PATH
 
+# Allow user set host aliases
+export HOSTALIASES=~/.hosts
+
 # Set terminal to 256 colors if using an xterm compatible term
 if [[ "$TERM" =~ xterm.* ]]; then
   export TERM=gnome-256color
