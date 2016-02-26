@@ -9,7 +9,7 @@ RCDN := $(shell which rcdn)
 ifndef RCDN
 RCDN := $(RCM_BIN)/rcdn
 endif
-RCM_VERSION := 1.2.3
+RCM_VERSION := 1.3.0
 
 default: update
 
@@ -28,6 +28,9 @@ $(RCM_TMP)/rcm-$(RCM_VERSION): | $(RCM_TMP)/rcm-$(RCM_VERSION).tar.gz
 $(RCM_BIN)/rcup $(RCM_BIN)/rcdn: | $(RCM_TMP)/rcm-$(RCM_VERSION)
 	@cd $(RCM_TMP)/rcm-$(RCM_VERSION) && ./configure --prefix=$(RCM_TMP)/rcm && $(MAKE) && $(MAKE) install
 
+rcup_server: | $(RCUP) $(HOME)/.rcrc
+	PATH=$(RCM_BIN):$(PATH) $(RCUP) -f -t server
+
 rcup: | $(RCUP) $(HOME)/.rcrc
 	PATH=$(RCM_BIN):$(PATH) $(RCUP) -f
 
@@ -38,6 +41,8 @@ latest:
 	@cd $(DOTFILES_DIR) && git pull
 
 update: latest rcup
+
+update: latest rcup_server
 
 clean:
 	@rm -rf $(RCM_TMP)

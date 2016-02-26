@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ln -sf $HOME/.config/nvim $HOME/.vim
+ln -sf $HOME/.config/nvim/init.vim $HOME/.vimrc
+
