@@ -2,12 +2,13 @@ call plug#begin()
 
 " Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Style and colors
 Plug 'bling/vim-airline'
 Plug 'godlygeek/csapprox'
+Plug 'ryanoasis/vim-devicons'
 
 " Editing
 Plug 'tpope/vim-sensible'
