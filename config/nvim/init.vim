@@ -1,19 +1,7 @@
 execute 'runtime!' 'plugins.vim'
 execute 'runtime!' 'style.vim'
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-let g:ulti_expand_or_jump_res = 0
-function! <SID>ExpandSnippetOrReturn()
-  let snippet = UltiSnips#ExpandSnippetOrJump()
-  if g:ulti_expand_or_jump_res > 0
-    return snippet
-  else
-    return "\<CR>"
-  endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
+let g:deoplete#enable_at_startup = 1
 
 " Fast editing of init.vim
 map <leader>e :vsp ~/.config/nvim/init.vim<cr>

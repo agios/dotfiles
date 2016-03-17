@@ -21,7 +21,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 
 " Coding
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } "is sometimes slow
+Plug 'Shougo/deoplete.nvim' " Asynchronous completion
 Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rking/ag.vim'
