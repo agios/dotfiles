@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Halt on errors
+set -e
+
+image=$1
+if [[ $image != /* ]]; then
+	image="$(pwd)/$image"
+fi
+clone="$(echo $image | cut -f 1 -d '.')_clone.vdi"
+size=$(($2 * 1024))
+
+# We could even detach and re-attach the disk when done
+#vm=$(VBoxManage showhdinfo "`pwd`/box-disk1.vmdk" | grep "In use" | sed -n 's/.*UUID: \([^\"]*\)).*/\1/p')
+#echo Detaching disk
+
+echo Cloning to $clone
+VBoxManage clonehd "$image" "$clone" --format vdi
+echo Resizing $clone
+VBoxManage modifyhd "$clone" --resize 51200
+echo Removing $image
+VBoxManage closemedium disk "$image" --delete
+echo Cloning back to $image
+VBoxManage clonehd "$clone" "$image" --format vmdk
+echo Removing $clone
+VBoxManage closemedium disk "$clone" --delete
