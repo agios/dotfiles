@@ -67,6 +67,8 @@ vmap <tab> %
 " Select last pasted text with gp
 nnoremap gp `[v`]
 
+" Neomake for asynchronous linting
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
 autocmd! BufWritePost * Neomake
 
 " scss.css syntax is wonky for me, use plain scss syntax
