@@ -2,7 +2,8 @@ call plug#begin()
 
 " Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Style and colors
@@ -24,7 +25,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Shougo/deoplete.nvim' " Asynchronous completion
 Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
-Plug 'rking/ag.vim'
 "Plug 'tpope/vim-endwise' "messes up UltiSnip <CR> completion
 Plug 'tpope/vim-eunuch'
 Plug 'edsono/vim-matchit'

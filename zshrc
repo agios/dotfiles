@@ -58,3 +58,5 @@ if [[ $- == *i* ]]; then # Running in an interactive shell
   stty -ixon
   stty stop undef
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

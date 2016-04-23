@@ -17,3 +17,7 @@ export HOSTALIASES=~/.hosts
 if [[ "$TERM" =~ xterm.* ]]; then
   export TERM=gnome-256color
 fi
+
+# Use ag for default fzf search
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+#export FZF_DEFAULT_OPTS='--exact'

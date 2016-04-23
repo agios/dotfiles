@@ -27,10 +27,23 @@ nmap <Leader>hs <Plug>GitGutterStageHunk
 
 let NERDTreeQuitOnOpen = 1
 
-let g:ctrlp_custom_ignore = {
-  \ 'file': '(\.(pyc|pyo|rbc|rbo|class|o)|\~)$\',
-  \ 'dir': '\v[\/](\.(git|hg|svn)|(doc|tmp|vendor))$'
-  \ }
+nnoremap <silent> <C-p>  :Files<cr>
+inoremap <silent> <C-p>  <ESC>:Files<cr>
+
+" Use space as a searching prefix
+nnoremap    [search]   <Nop>
+nmap        <Space> [search]
+
+nnoremap <silent> [search]b  :Buffers<CR>
+nnoremap <silent> [search]A  :Windows<CR>
+nnoremap <silent> [search];  :BLines<CR>
+nnoremap <silent> [search].  :Lines<CR>
+nnoremap <silent> [search]o  :BTags<CR>
+nnoremap <silent> [search]O  :Tags<CR>
+nnoremap <silent> [search]?  :History<CR>
+nnoremap <silent> [search]/  :execute 'Ag ' . input('Ag/')<CR>
+nnoremap <silent> [search]gl :Commits<CR>
+nnoremap <silent> [search]ga :BCommits<CR>
 
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
