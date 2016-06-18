@@ -1,11 +1,17 @@
 # Git
-eval "$(hub alias -s)"
+if (( $+commands[hub] )) ; then
+  eval "$(hub alias -s)"
+fi
 alias gclean='git reset --hard && git clean -df'
 alias gh='git hist'
 alias gd='git icdiff'
 
-alias diff="icdiff"
-eval "$(thefuck --alias)"
+if (( $+commands[icdiff] )) ; then
+  alias diff="icdiff"
+fi
+if (( $+commands[thefuck] )) ; then
+  eval "$(thefuck --alias)"
+fi
 alias myip="wget http://ifconfig.me/ip -O - -q ; echo"
 alias webserver="python -m SimpleHTTPServer"
 
