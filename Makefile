@@ -14,7 +14,7 @@ RCM_VERSION := 1.3.0
 default: update
 
 $(HOME)/.rcrc:
-	@ln -s $(DOTFILES_DIR)/rcrc $(HOME)/.rcrc
+	@ln -sf $(DOTFILES_DIR)/rcrc $(HOME)/.rcrc
 
 $(RCM_TMP):
 	@mkdir -p $(RCM_TMP)
