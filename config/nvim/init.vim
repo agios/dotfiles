@@ -112,15 +112,11 @@ autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v
 let ruby_fold=1
 let xml_syntax_folding=1
 
-" Tabularize shortcuts
-nmap <Leader>a= :Tabularize /[\|\&]*=<CR>
-vmap <Leader>a= :Tabularize /[\|\&]*=<CR>
-nmap <Leader>a> :Tabularize /=>/r1c1l0<CR>
-vmap <Leader>a> :Tabularize /=>/r1c1l0<CR>
-nmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
-vmap <Leader>a: :Tabularize /^[^:]*:\zs/l0l1<CR>
-nmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
-vmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
+" EasyAlign shortcuts
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Relative line numbers
 function! NumberToggle()
