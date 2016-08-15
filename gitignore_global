@@ -19,3 +19,7 @@ cscope.files
 cscope.out
 cscope.in.out
 cscope.po.out
+
+# Ruby
+Gemfile.local
+Gemfile.local.lock

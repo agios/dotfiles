@@ -1,39 +1,45 @@
 # Tmuxinator defaults file, eg:
 #
-# <%= File.read("#{ENV["HOME"]}/.tmuxinator/defaults") %>
+# <%#= Erubis::Eruby.new(File.read("#{ENV['HOME']}/.tmuxinator/defaults")).evaluate(self) %>
+#
 # <<: *rails-defaults
 
+<% pre_window = (@local_env || {}).map { |name, value| "export #{name}=#{value}" } %>
+<% pre_window << 'rbenv bundler on' %>
+<% pre_window = pre_window.join('; ') %>
+
+<% guard_env = (@guard_env || {}).map { |name, value| "export #{name}=#{value}" } %>
+<% guard_env = guard_env.join('; ') %>
+
 rails-defaults: &rails-defaults
-  pre: rbenv bundler on
+  pre_window: <%= pre_window %>
   windows:
-    #- editor:
-        #layout: ec62,191x54,0,0{101x54,0,0,0,89x54,102,0[89x26,102,0,3,89x27,102,27,4]}
-        #panes:
-          #- vim
-          #- guard
-          #- rails s
     - editor: vim
-    - rails:
-        panes:
-          - rails s
-          - rails c
-    - shell:
+    - rails: rails s
+    - test:
+        layout: main-vertical
         panes:
           - guard
-          -
+          - rails c
+    - shell:
 
 rails-docker-defaults: &rails-docker-defaults
+  pre_window: <%= pre_window %>
   windows:
     - editor: vim
     - rails: docker-compose up
     - test:
+        layout: main-vertical
         panes:
-          - docker-compose run -p 35729:35729 app guard
-          - docker-compose run app rails c
+          - guard:
+            - <%= guard_env %>
+            - bundle exec guard
+          - console:
+            - docker-compose run app rails c
     - shell:
 
 rails-engine-defaults: &rails-engine-defaults
-  pre: rbenv bundler on
+  pre_window: <%= pre_window %>
   windows:
     - editor: vim
     - rails:
