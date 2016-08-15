@@ -1,4 +1,4 @@
-SYMLINK_DIRS="squirrel-sql source antigen tmuxinator rbenv"
+SYMLINK_DIRS="squirrel-sql source antigen tmuxinator rbenv gnupg"
 DOTFILES_DIRS="$HOME/dotfiles $HOME/dotfiles-local $HOME/dotfiles-private"
 UNDOTTED="bin"
 EXCLUDES="Makefile"
