@@ -64,6 +64,11 @@ set tags+=gems.tags
 " Delete trailing spaces
 nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" NERDCommenter
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDSpaceDelims = 1
+
 " Search tweaks
 " Clear last search
 nnoremap <leader><space> :noh<cr>
