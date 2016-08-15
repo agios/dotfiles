@@ -27,8 +27,19 @@ nmap <Leader>hs <Plug>GitGutterStageHunk
 
 let NERDTreeQuitOnOpen = 1
 
+" FZF config
 nnoremap <silent> <C-p>  :Files<cr>
 inoremap <silent> <C-p>  <ESC>:Files<cr>
+
+" See mappings using fzf
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " Use space as a searching prefix
 nnoremap    [search]   <Nop>
@@ -82,8 +93,8 @@ set gdefault
 
 " Use tab to jump between brackets
 "nnoremap <tab> %
-nmap <tab> %
-vmap <tab> %
+"nmap <tab> %
+"vmap <tab> %
 
 " Select last pasted text with gp
 nnoremap gp `[v`]
