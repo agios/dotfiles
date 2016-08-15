@@ -111,7 +111,14 @@ onoremap <F9> <C-C>za
 vnoremap <F9> zf
 
 set foldmethod=syntax
-autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
+"autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
+autocmd BufWinEnter * let &foldlevel = 1
+function! MakeViewCheck()
+    if has('quickfix') && &buftype =~ 'nofile'
+	" Buffer is marked as not a file
+	return 0
+    endif
+endfunction
 let ruby_fold=1
 let xml_syntax_folding=1
 
