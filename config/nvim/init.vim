@@ -58,6 +58,9 @@ map \w :grep -R --binary-files=without-match --exclude=*~ TODO --exclude=*.html 
 nmap <silent> <Leader>h :let _s=@/<Bar>:%s/:\([^=,]*\) =>/\1:/g<Bar>:let @/=_s<Bar>:nohl<CR>
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
+" Search gems.tags
+set tags+=gems.tags
+
 " Delete trailing spaces
 nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
