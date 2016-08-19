@@ -3,3 +3,4 @@
 ln -sf $HOME/.config/nvim $HOME/.vim
 ln -sf $HOME/.config/nvim/init.vim $HOME/.vimrc
 
+vim +PlugInstall +qall
