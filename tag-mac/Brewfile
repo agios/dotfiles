@@ -1,0 +1,67 @@
+tap 'thoughtbot/formulae'
+tap 'homebrew/services'
+tap 'neovim/neovim'
+tap 'caskroom/cask'
+cask_args appdir: '/Applications'
+
+# Libs
+brew 'openssl'
+brew 'libxml2'
+
+# Tools
+brew 'ctags'
+brew 'git'
+brew 'rcm'
+brew 'xz', args: ['universal']
+brew 'the_silver_searcher'
+brew 'tmux', args: ['HEAD']
+brew 'zsh'
+brew 'htop'
+brew 'nmap'
+brew 'ipcalc'
+brew 'unrar'
+
+# Clients
+brew 'hub'
+brew 's3cmd'
+brew 'awscli'
+brew 'aws-shell'
+brew 'homebrew/x11/freerdp'
+cask 'tunnelblick'
+cask 'adium'
+cask 'java' # required for squirrelsql
+cask 'squirrelsql'
+
+# Image manipulation
+brew 'imagemagick'
+
+# Testing
+brew 'qt'
+
+# Development
+brew 'libyaml' # should come after openssl
+brew 'node'
+brew 'python'
+brew 'python3'
+brew 'neovim'
+
+# Virtualization
+brew 'xhyve', args: ['HEAD']
+cask 'virtualbox', restart_service: :changed
+cask 'vagrant'
+
+# Databases
+brew 'postgresql'
+brew 'redis'
+brew 'freetds'
+
+# Utilities
+brew 'gnupg2'
+brew 'gpg-agent'
+cask 'google-chrome'
+cask 'firefox'
+cask 'adobe-reader'
+cask 'mactex'
+cask 'karabiner'
+cask 'iterm2'
+cask 'inkscape'

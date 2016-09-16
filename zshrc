@@ -40,6 +40,9 @@ antigen bundle docker-compose
 # Various
 antigen bundle vagrant
 
+# Mac
+antigen bundle brew
+
 # Tell antigen that you're done.
 antigen apply
 

@@ -36,6 +36,7 @@ check_gem() {
   if not_cmd "$check_cmd"; then
     echo Installing gem $gem
     gem install $gem #--no-document
+    rbenv rehash
   fi
 }
 

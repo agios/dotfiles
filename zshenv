@@ -4,6 +4,7 @@ skip_global_compinit=1
 fpath=(~/.zsh/completion $fpath)
 
 PATH="$HOME/bin:$PATH"
+PATH="$PATH:/Library/TeX/texbin"
 
 export GOPATH=$HOME/go
 PATH="$PATH:$GOPATH/bin"
@@ -17,6 +18,9 @@ export HOSTALIASES=~/.hosts
 if [[ "$TERM" =~ xterm.* ]]; then
   export TERM=gnome-256color
 fi
+
+export EDITOR=nvim
+export LC_ALL=en_US.UTF-8
 
 # Use ag for default fzf search
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'

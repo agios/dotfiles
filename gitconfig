@@ -19,4 +19,4 @@
 	enabled = true
 	autoupdate = true
 [core]
-	excludesfile = /home/agios/.gitignore_global
+	excludesfile = ~/.gitignore_global

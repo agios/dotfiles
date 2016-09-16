@@ -20,8 +20,6 @@ rails-defaults: &rails-defaults
         layout: main-vertical
         panes:
           - guard
-          - rails c
-    - shell:
 
 rails-docker-defaults: &rails-docker-defaults
   pre_window: <%= pre_window %>
@@ -33,7 +31,7 @@ rails-docker-defaults: &rails-docker-defaults
         panes:
           - guard:
             - <%= guard_env %>
-            - bundle exec guard
+            - docker-compose run app guard
           - console:
             - docker-compose run app rails c
     - shell:

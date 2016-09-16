@@ -4,20 +4,45 @@ git_clone_or_update "$HOME/.rbenv/plugins/bundler" "https://github.com/carsomyr/
 git_clone_or_update "$HOME/.rbenv/plugins/rbenv-gem-rehash" "https://github.com/sstephenson/rbenv-gem-rehash.git"
 git_clone_or_update "$HOME/.rbenv/plugins/ruby-build" "https://github.com/sstephenson/ruby-build.git"
 
-ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
+find_latest_ruby() {
+  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
+}
+
+ruby_version="$(find_latest_ruby)"
 
 if !(rbenv versions | grep "$ruby_version" > /dev/null); then
-  # Ensure system deps are installed
-  sudo apt-get build-dep -y ruby2.2
+  os="$(uname)"
+
+  # Pre tasks
+  case $os in
+  Linux)
+    # Ensure system deps are installed
+    sudo apt-get build-dep -y ruby2.2
+    number_of_cores=$(nproc)
+    ;;
+  Darwin)
+    number_of_cores=$(sysctl -n hw.ncpu)
+    ;;
+  esac
 
   rbenv install -s "$ruby_version"
   rbenv global "$ruby_version"
   rbenv rehash
 
+  # Post tasks
   gem update --system
   gem install bundler --no-document --pre
 
-  number_of_cores=$(nproc)
   bundle config --global jobs $((number_of_cores - 1))
+
+  case $os in
+  Linux)
+    ;;
+  Darwin)
+    # bundle config build.libv8 --with-system-v8
+    # bundle config build.therubyracer --with-v8-dir=/usr/local/opt/v8
+    bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2
+    ;;
+  esac
 fi
 

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+INSTALLCRON="# check for runaway distnoted every minute:
+* * * * * sh \"\$HOME/bin/check-distnoted\""
+
+crontab -l | grep -q '$HOME'/bin/check-distnoted || {
+    crontab -l > mycron
+    echo "$INSTALLCRON" >> mycron
+    crontab mycron
+    rm mycron
+    echo updated crontab
+}
