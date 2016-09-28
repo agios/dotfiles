@@ -1,7 +1,7 @@
 tap 'thoughtbot/formulae'
 tap 'homebrew/services'
+tap 'homebrew/x11'
 tap 'neovim/neovim'
-tap 'caskroom/cask'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -26,9 +26,13 @@ brew 'hub'
 brew 's3cmd'
 brew 'awscli'
 brew 'aws-shell'
-brew 'homebrew/x11/freerdp'
+cask 'xquartz'
+brew 'freerdp'
+brew 'syncthing', restart_service: :changed
+brew 'mas'
 cask 'tunnelblick'
 cask 'adium'
+brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-perl', '--with-ruby', '--with-lua', '--with-guile']
 cask 'java' # required for squirrelsql
 cask 'squirrelsql'
 
@@ -58,10 +62,10 @@ brew 'freetds'
 # Utilities
 brew 'gnupg2'
 brew 'gpg-agent'
+mas 'LastPass', id: 926036361
 cask 'google-chrome'
 cask 'firefox'
 cask 'adobe-reader'
 cask 'mactex'
-cask 'karabiner'
 cask 'iterm2'
 cask 'inkscape'
