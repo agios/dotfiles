@@ -56,9 +56,8 @@ nnoremap <silent> [search]/  :execute 'Ag ' . input('Ag/')<CR>
 nnoremap <silent> [search]gl :Commits<CR>
 nnoremap <silent> [search]ga :BCommits<CR>
 
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+" tab handling
+set ts=2 sw=2 expandtab " Default
 autocmd Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
 
 " Ruby development
