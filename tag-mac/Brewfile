@@ -60,6 +60,7 @@ brew 'redis'
 brew 'freetds'
 
 # Utilities
+brew 'reattach-to-user-namespace'
 brew 'gnupg2'
 brew 'gpg-agent'
 mas 'LastPass', id: 926036361
