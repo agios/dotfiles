@@ -33,8 +33,10 @@ man() {
 }
 
 # Use neovim for vi
-alias vi=nvim
-alias vim=nvim
+if (( $+commands[nvim] )); then
+  alias vi=nvim
+  alias vim=nvim
+fi
 
 # Useful to notify long-running scripts have terminated
 alias alarm='ogg123 -q /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga'
