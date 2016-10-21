@@ -46,6 +46,7 @@ Plug 'slim-template/vim-slim'
 
 Plug 'ap/vim-css-color'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'rhysd/vim-crystal'
 Plug 'PProvost/vim-ps1'
 Plug 'chase/vim-ansible-yaml'
 Plug 'greyblake/vim-preview'

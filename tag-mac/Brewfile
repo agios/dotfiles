@@ -51,6 +51,7 @@ brew 'node'
 brew 'python'
 brew 'python3'
 brew 'neovim'
+brew 'crystal-lang', args: ['--with-llvm']
 
 # Virtualization
 brew 'xhyve', args: ['HEAD']
