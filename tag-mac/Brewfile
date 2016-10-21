@@ -2,6 +2,7 @@ tap 'thoughtbot/formulae'
 tap 'homebrew/services'
 tap 'homebrew/x11'
 tap 'neovim/neovim'
+tap 'jeffreywildman/homebrew-virt-manager'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -30,6 +31,8 @@ cask 'xquartz'
 brew 'freerdp'
 brew 'syncthing', restart_service: :changed
 brew 'mas'
+brew 'virt-viewer'
+brew 'virt-manager'
 cask 'tunnelblick'
 cask 'adium'
 brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-perl', '--with-ruby', '--with-lua', '--with-guile']
@@ -64,9 +67,11 @@ brew 'reattach-to-user-namespace'
 brew 'gnupg2'
 brew 'gpg-agent'
 mas 'LastPass', id: 926036361
+mas 'Slack', id: 803453959
 cask 'google-chrome'
 cask 'firefox'
 cask 'adobe-reader'
 cask 'mactex'
 cask 'iterm2'
 cask 'inkscape'
+cask 'teamviewer'
