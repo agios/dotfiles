@@ -7,7 +7,8 @@ antigen use oh-my-zsh
 antigen theme alanpeabody
 
 # Basic bundles
-antigen bundle git
+antigen bundle gitfast
+antigen bundle github
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z # jump around!
