@@ -19,9 +19,11 @@ if !(rbenv versions | grep "$ruby_version" > /dev/null); then
     # Ensure system deps are installed
     sudo apt-get build-dep -y ruby2.2
     number_of_cores=$(nproc)
+    rbenv install -s "$ruby_version"
     ;;
   Darwin)
     number_of_cores=$(sysctl -n hw.ncpu)
+    RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline` rbenv install -s "$ruby_version"
     ;;
   esac
 
