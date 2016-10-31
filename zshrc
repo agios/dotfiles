@@ -14,7 +14,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z # jump around!
 if (( $+commands[tmux] )) ; then
   antigen bundle tmux
-  antigen bundle tmuxinator
+  antigen bundle tmuxinator/tmuxinator completion/tmuxinator.zsh
 fi
 
 # Ruby
