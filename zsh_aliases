@@ -1,6 +1,8 @@
 # Fix hub alias
-unalias git
-function git() { hub $@; }
+if (( $+commands[hub] )) ; then
+  unalias git
+  function git() { hub $@; }
+fi
 
 # Git
 alias gclean='git reset --hard && git clean -df'
