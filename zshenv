@@ -17,7 +17,7 @@ export HOSTALIASES=~/.hosts
 
 # Set terminal to 256 colors if using an xterm compatible term
 if [[ "$TERM" =~ xterm.* ]]; then
-  export TERM=xterm-256color
+  export TERM=screen-256color
 fi
 
 export EDITOR=nvim
