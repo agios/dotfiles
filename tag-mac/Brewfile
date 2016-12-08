@@ -21,6 +21,8 @@ brew 'htop'
 brew 'nmap'
 brew 'ipcalc'
 brew 'unrar'
+brew 'dos2unix'
+brew 'jq'
 
 # Clients
 brew 'hub'
