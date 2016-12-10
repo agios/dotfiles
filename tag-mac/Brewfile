@@ -77,6 +77,7 @@ mas 'Todoist: To Do List | Task List', id: 585829637
 cask 'google-chrome'
 cask 'firefox'
 cask 'adobe-reader'
+cask 'libreoffice'
 cask 'mactex'
 cask 'iterm2'
 cask 'inkscape'
