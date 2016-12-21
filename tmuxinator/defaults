@@ -32,7 +32,7 @@ rails-docker-defaults: &rails-docker-defaults
           - guard:
             - <%= guard_env %>
             - sleep 2
-            - docker-compose run app guard
+            - bundle exec guard
           - console:
             - sleep 4
             - docker-compose run app rails c
