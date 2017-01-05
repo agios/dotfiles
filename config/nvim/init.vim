@@ -3,6 +3,7 @@ execute 'runtime!' 'style.vim'
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Fast editing of init.vim
 map <leader>e :vsp ~/.config/nvim/init.vim<cr>
