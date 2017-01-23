@@ -23,6 +23,8 @@ brew 'ipcalc'
 brew 'unrar'
 brew 'dos2unix'
 brew 'jq'
+brew 'pv'
+brew 'lnav'
 
 # Clients
 brew 'hub'
