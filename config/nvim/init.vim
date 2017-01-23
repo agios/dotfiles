@@ -90,6 +90,8 @@ vnoremap / /\v
 
 " Global replace by default
 set gdefault
+" Do not stop between pages on 'argdo'
+set nomore
 
 " Use tab to jump between brackets
 "nnoremap <tab> %
