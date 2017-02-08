@@ -43,6 +43,7 @@ brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-
 cask 'java' # required for squirrelsql
 cask 'squirrelsql'
 cask 'pgadmin4'
+cask 'rdm'
 
 # Image manipulation
 brew 'imagemagick'
