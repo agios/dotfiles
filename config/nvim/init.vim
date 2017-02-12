@@ -21,6 +21,7 @@ autocmd User Fugitive
   \  nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
 autocmd BufReadPost fugitive://* set bufhidden=delete
+map <leader>b :Gblame -wMCCC<cr>
 
 " GitGutter
 " Re-enable default mapping
