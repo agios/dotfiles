@@ -3,6 +3,7 @@ tap 'homebrew/services'
 tap 'homebrew/x11'
 tap 'neovim/neovim'
 tap 'jeffreywildman/homebrew-virt-manager'
+tap 'caskroom/cask'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -15,7 +16,7 @@ brew 'git'
 brew 'rcm'
 brew 'xz', args: ['universal']
 brew 'the_silver_searcher'
-brew 'tmux', args: ['HEAD']
+brew 'tmux'
 brew 'zsh'
 brew 'htop'
 brew 'nmap'
