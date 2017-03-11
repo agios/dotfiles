@@ -4,6 +4,7 @@ tap 'homebrew/x11'
 tap 'neovim/neovim'
 tap 'jeffreywildman/homebrew-virt-manager'
 tap 'caskroom/cask'
+tap 'shopify/shopify'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -38,6 +39,7 @@ brew 'syncthing', restart_service: :changed
 brew 'mas'
 brew 'virt-viewer'
 brew 'virt-manager'
+brew 'themekit'
 cask 'tunnelblick'
 cask 'adium'
 brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-perl', '--with-ruby', '--with-lua', '--with-guile']
