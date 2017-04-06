@@ -40,6 +40,7 @@ brew 'mas'
 brew 'virt-viewer'
 brew 'virt-manager'
 brew 'themekit'
+brew 'mobile-shell'
 cask 'tunnelblick'
 cask 'adium'
 brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-perl', '--with-ruby', '--with-lua', '--with-guile']
@@ -83,6 +84,7 @@ mas 'LastPass', id: 926036361
 mas 'Slack', id: 803453959
 mas 'The Unarchiver', id: 425424353
 mas 'Todoist: To Do List | Task List', id: 585829637
+mas 'Growl', id: 467939042
 cask 'google-chrome'
 cask 'firefox'
 cask 'libreoffice'
