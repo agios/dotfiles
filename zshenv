@@ -28,3 +28,23 @@ export LC_ALL=en_US.UTF-8
 # Use ag for default fzf search
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 #export FZF_DEFAULT_OPTS='--exact'
+
+if [ -n "$TMUX" ]; then
+  function refresh {
+    sshauth=$(tmux show-environment | grep "^SSH_AUTH_SOCK")
+    if [ $sshauth ]; then
+      export $sshauth
+    fi
+    display=$(tmux show-environment | grep "^DISPLAY")
+    if [ $display ]; then
+      export $display
+    fi
+  }
+else
+  function refresh { }
+fi
+
+function preexec {
+  # Refresh environment if inside tmux
+  refresh
+}
