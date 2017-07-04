@@ -10,6 +10,8 @@ PATH="$PATH:/Library/TeX/texbin"
 export GOPATH=$HOME/go
 PATH="$PATH:$GOPATH/bin"
 
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
 export PATH
 
 # Allow user set host aliases

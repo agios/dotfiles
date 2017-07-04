@@ -61,6 +61,7 @@ brew 'neovim'
 brew 'readline'
 brew 'ruby-build'
 brew 'crystal-lang', args: ['--with-llvm']
+cask 'android-studio'
 
 # Virtualization
 brew 'xhyve', args: ['HEAD']
