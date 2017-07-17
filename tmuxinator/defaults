@@ -36,6 +36,7 @@ rails-docker-defaults: &rails-docker-defaults
           - console:
             - sleep 4
             - docker-compose run app rails c
+    - docker: docker-compose run app bash
     - shell:
 
 rails-engine-defaults: &rails-engine-defaults
