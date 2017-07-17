@@ -14,6 +14,11 @@ map <leader>p :vsp ~/.config/nvim/plugins.vim<cr>
 autocmd! bufwritepost plugins.vim execute 'runtime!' 'plugins.vim'
 
 map <leader>n :NERDTreeToggle<cr>
+let NERDTreeQuitOnOpen = 1
+
+if has('clipboard')
+  set clipboard=unnamed
+endif
 
 " Fugitive (git)
 autocmd User Fugitive
@@ -26,8 +31,6 @@ map <leader>b :Gblame -wMCCC<cr>
 " GitGutter
 " Re-enable default mapping
 nmap <Leader>hs <Plug>GitGutterStageHunk
-
-let NERDTreeQuitOnOpen = 1
 
 " FZF config
 nnoremap <silent> <C-p>  :Files<cr>
