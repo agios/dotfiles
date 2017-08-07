@@ -28,6 +28,7 @@ Plug 'scrooloose/nerdcommenter'
 "Plug 'tpope/vim-endwise' "messes up UltiSnip <CR> completion
 Plug 'tpope/vim-eunuch'
 Plug 'edsono/vim-matchit'
+Plug 'craigemery/vim-autotag'
 
 " Snippets and completion
 Plug 'SirVer/ultisnips'
@@ -41,6 +42,7 @@ Plug 'airblade/vim-gitgutter'
 " Ruby & Rails
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
 Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
 

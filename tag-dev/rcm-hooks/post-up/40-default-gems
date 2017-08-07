@@ -1,4 +1,4 @@
 #!/bin/sh
 
-check_all_gems pry pry-byebug awesome_print guard tmuxinator neovim papertrail
+check_all_gems pry pry-byebug awesome_print guard tmuxinator neovim papertrail gem-ctags
 
