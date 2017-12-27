@@ -129,6 +129,9 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+" Disable mouse
+set mouse=
+
 set viewoptions=folds,cursor
 
 " F9 toggles folding
