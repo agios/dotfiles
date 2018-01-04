@@ -46,6 +46,8 @@ Plug 'tpope/vim-bundler'
 Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
 
+" Syntax files
+Plug 'posva/vim-vue'
 Plug 'ap/vim-css-color'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'rhysd/vim-crystal'
@@ -54,4 +56,6 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'greyblake/vim-preview'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'cespare/vim-toml'
+Plug 'ClockworkNet/vim-junos-syntax'
+
 call plug#end()
