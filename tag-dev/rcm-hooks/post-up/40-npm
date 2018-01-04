@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo npm install -g yarn eslint eslint-plugin-vue
+
