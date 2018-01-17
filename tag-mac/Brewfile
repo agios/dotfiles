@@ -29,6 +29,7 @@ brew 'dos2unix'
 brew 'jq'
 brew 'pv'
 brew 'lnav'
+brew 'watch'
 
 # Clients
 brew 'hub'
