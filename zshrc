@@ -4,7 +4,8 @@ source $HOME/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # Load the theme.
-antigen theme alanpeabody
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 
 # Basic bundles
 antigen bundle gitfast
