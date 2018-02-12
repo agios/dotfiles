@@ -48,7 +48,7 @@ brew 'mobile-shell'
 cask 'tunnelblick'
 cask 'adium'
 brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-perl', '--with-ruby', '--with-lua', '--with-guile']
-cask 'java' # required for squirrelsql
+cask 'caskroom/versions/java8' # required for squirrelsql
 cask 'squirrelsql'
 cask 'pgadmin4'
 cask 'rdm'
