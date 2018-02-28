@@ -7,6 +7,7 @@ tap 'neovim/neovim'
 tap 'jeffreywildman/homebrew-virt-manager'
 tap 'caskroom/cask'
 tap 'shopify/shopify'
+tap 'wallix/awless'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -30,6 +31,7 @@ brew 'jq'
 brew 'pv'
 brew 'lnav'
 brew 'watch'
+brew 'awless'
 
 # Clients
 brew 'hub'
