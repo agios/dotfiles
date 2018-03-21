@@ -54,8 +54,8 @@ nnoremap <silent> [search]b  :Buffers<CR>
 nnoremap <silent> [search]A  :Windows<CR>
 nnoremap <silent> [search];  :BLines<CR>
 nnoremap <silent> [search].  :Lines<CR>
-nnoremap <silent> [search]t  :BTags<CR>
-nnoremap <silent> [search]T  :Tags<CR>
+nnoremap <silent> [search]t  :Tags<CR>
+nnoremap <silent> [search]T  :BTags<CR>
 nnoremap <silent> [search]?  :History<CR>
 nnoremap <silent> [search]/  :execute 'Ag ' . input('Ag/')<CR>
 nnoremap <silent> [search]gl :Commits<CR>
