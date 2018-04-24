@@ -27,15 +27,9 @@ rails-docker-defaults: &rails-docker-defaults
     - editor: vim
     - rails: docker-compose up
     - test:
-        layout: main-vertical
-        panes:
-          - guard:
-            - <%= guard_env %>
-            - sleep 2
-            - bundle exec guard
-          - console:
-            - sleep 4
-            - docker-compose run app rails c
+        - <%= guard_env %>
+        - sleep 2
+        - bundle exec guard
     - docker: docker-compose run app bash
     - shell:
 
