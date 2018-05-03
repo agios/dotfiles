@@ -12,6 +12,7 @@ alias ghb='git hist --branches'
 alias ghf='git hist --first-parent'
 alias gd='git icdiff'
 
+alias mux='tmuxinator'
 if (( $+commands[icdiff] )) ; then
   alias diff="icdiff"
 fi
