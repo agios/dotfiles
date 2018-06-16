@@ -12,7 +12,6 @@ antigen bundle gitfast
 antigen bundle github
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle rupa/z # jump around!
 if (( $+commands[tmux] )) ; then
   antigen bundle tmux
   antigen bundle tmuxinator
