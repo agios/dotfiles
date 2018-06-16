@@ -18,7 +18,7 @@ if (( $+commands[tmux] )) ; then
 fi
 
 # Ruby
-antigen bundle rbenv
+antigen bundle asdf
 antigen bundle rails
 antigen bundle capistrano
 #antigen bundle heroku

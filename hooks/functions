@@ -29,20 +29,3 @@ check_all_packages() {
     check_package "$p"
   done
 }
-
-check_gem() {
-  local gem=$1
-  local check_cmd="${2:-gem which $1}"
-  if not_cmd "$check_cmd"; then
-    echo Installing gem $gem
-    gem install $gem #--no-document
-    rbenv rehash
-  fi
-}
-
-check_all_gems() {
-  for g in "$@"; do
-    check_gem "$g"
-  done
-}
-

@@ -1,16 +1,12 @@
 #!/bin/sh
 
-git_clone_or_update "$HOME/.rbenv/plugins/bundler" "https://github.com/carsomyr/rbenv-bundler.git"
-git_clone_or_update "$HOME/.rbenv/plugins/rbenv-gem-rehash" "https://github.com/sstephenson/rbenv-gem-rehash.git"
-git_clone_or_update "$HOME/.rbenv/plugins/ruby-build" "https://github.com/sstephenson/ruby-build.git"
-
 find_latest_ruby() {
-  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
+  asdf list-all ruby | grep -v - | tail -1 | sed -e 's/^ *//'
 }
 
 ruby_version="$(find_latest_ruby)"
 
-if !(rbenv versions | grep "$ruby_version" > /dev/null); then
+if !(asdf list ruby | grep "$ruby_version" > /dev/null); then
   os="$(uname)"
 
   # Pre tasks
@@ -19,17 +15,13 @@ if !(rbenv versions | grep "$ruby_version" > /dev/null); then
     # Ensure system deps are installed
     sudo apt-get build-dep -y ruby2.2
     number_of_cores=$(nproc)
-    rbenv install -s "$ruby_version"
     ;;
   Darwin)
     number_of_cores=$(sysctl -n hw.ncpu)
-    RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline` rbenv install -s "$ruby_version"
     ;;
   esac
 
-  rbenv install -s "$ruby_version"
-  rbenv global "$ruby_version"
-  rbenv rehash
+  asdf install ruby "$ruby_version"
 
   # Post tasks
   gem update --system
