@@ -1,0 +1,4 @@
+disk=$1
+
+size=`diskutil info disk2 | grep "Disk Size" | sed "s/.*(\([0-9]*\) Bytes).*/\1/"`
+dd if=/dev/urandom bs=1m | pv -s $size | dd of=/dev/$disk bs=1m
