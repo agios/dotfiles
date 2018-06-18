@@ -62,6 +62,7 @@ nnoremap <silent> [search]gl :Commits<CR>
 nnoremap <silent> [search]ga :BCommits<CR>
 
 " tab handling
+set nopaste
 set ts=2 sw=2 expandtab " Default
 autocmd Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
 
