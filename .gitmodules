@@ -1,9 +1,6 @@
 [submodule "bin/source/icdiff"]
 	path = bin/source/icdiff
 	url = https://github.com/jeffkaufman/icdiff.git
-[submodule "antigen"]
-	path = antigen
-	url = https://github.com/zsh-users/antigen.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm

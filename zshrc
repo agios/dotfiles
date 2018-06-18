@@ -1,51 +1,52 @@
-source $HOME/.antigen/antigen.zsh
+#!/bin/zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+autoload -Uz compinit
+compinit
+
+source <(antibody init)
+
+antibody bundle robbyrussell/oh-my-zsh folder:lib
 
 # Load the theme.
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+antibody bundle mafredri/zsh-async
 
 # Basic bundles
-antigen bundle gitfast
-antigen bundle github
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/gitfast
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/github
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/command-not-found
 if (( $+commands[tmux] )) ; then
-  antigen bundle tmux
-  antigen bundle tmuxinator
+	antibody bundle robbyrussell/oh-my-zsh folder:plugins/tmux
+	antibody bundle tmuxinator/tmuxinator folder:completion
 fi
 
 # Ruby
-antigen bundle asdf
-antigen bundle rails
-antigen bundle capistrano
-#antigen bundle heroku
+# antibody bundle robbyrussell/oh-my-zsh folder:plugins/rails
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/heroku
 
 # Docker
-antigen bundle docker
-antigen bundle docker-compose
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/docker
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/docker-compose
 
 # Python
-#antigen bundle pip
-#antigen bundle python
-#antigen bundle virtualenv
-#antigen bundle virtualenvwrapper
+#antibody bundle robbyrussell/oh-my-zsh folder:plugins/pip
+#antibody bundle robbyrussell/oh-my-zsh folder:plugins/python
+#antibody bundle robbyrussell/oh-my-zsh folder:plugins/virtualenv
+#antibody bundle robbyrussell/oh-my-zsh folder:plugins/virtualenvwrapper
 
 # Node
-#antigen bundle coffee
-#antigen bundle node
-#antigen bundle npm
+#antibody bundle robbyrussell/oh-my-zsh folder:plugins/coffee
+#antibody bundle robbyrussell/oh-my-zsh folder:plugins/node
+#antibody bundle robbyrussell/oh-my-zsh folder:plugins/npm
 
 # Various
-antigen bundle vagrant
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/vagrant
 
 # Mac
-antigen bundle brew
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/brew
 
-# Tell antigen that you're done.
-antigen apply
+antibody bundle sindresorhus/pure
+antibody bundle zsh-users/zsh-syntax-highlighting
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/asdf
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
