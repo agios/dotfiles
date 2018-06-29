@@ -1,2 +1,3 @@
 tmp/
 tmuxinator/*.yml
+.DS_Store
