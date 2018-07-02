@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if !(asdf list ruby > /dev/null); then
+  asdf plugin-add ruby
+fi
+
 find_latest_ruby() {
   asdf list-all ruby | grep -v - | tail -1 | sed -e 's/^ *//'
 }
