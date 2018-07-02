@@ -1,7 +1,5 @@
 tap 'thoughtbot/formulae'
 tap 'homebrew/services'
-tap 'homebrew/x11'
-tap 'homebrew/science'
 tap 'linode/cli'
 tap 'neovim/neovim'
 tap 'jeffreywildman/homebrew-virt-manager'
