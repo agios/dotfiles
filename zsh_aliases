@@ -22,6 +22,7 @@ fi
 alias myip="curl http://ifconfig.me/ip"
 alias webserver="python -m SimpleHTTPServer"
 alias tor="docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --device /dev/snd --name tor-browser jess/tor-browser"
+alias docker-compose='GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` docker-compose'
 
 # Backward search with patterns
 bindkey '^r' history-incremental-pattern-search-backward
