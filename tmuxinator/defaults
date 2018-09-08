@@ -5,7 +5,6 @@
 # <<: *rails-defaults
 
 <% pre_window = (@local_env || {}).map { |name, value| "export #{name}=#{value}" } %>
-<% pre_window << 'rbenv bundler on' %>
 <% pre_window = pre_window.join('; ') %>
 
 <% guard_env = (@guard_env || {}).map { |name, value| "export #{name}=#{value}" } %>
