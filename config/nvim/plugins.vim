@@ -57,5 +57,6 @@ Plug 'greyblake/vim-preview'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'cespare/vim-toml'
 Plug 'ClockworkNet/vim-junos-syntax'
+Plug 'grawity/vim-mikrotik'
 
 call plug#end()
