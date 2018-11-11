@@ -5,48 +5,48 @@ compinit
 
 source <(antibody init)
 
-antibody bundle robbyrussell/oh-my-zsh folder:lib
+antibody bundle robbyrussell/oh-my-zsh path:lib
 
 # Load the theme.
 antibody bundle mafredri/zsh-async
 
 # Basic bundles
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/gitfast
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/github
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/command-not-found
+antibody bundle robbyrussell/oh-my-zsh path:plugins/gitfast
+antibody bundle robbyrussell/oh-my-zsh path:plugins/github
+antibody bundle robbyrussell/oh-my-zsh path:plugins/command-not-found
 if (( $+commands[tmux] )) ; then
-	antibody bundle robbyrussell/oh-my-zsh folder:plugins/tmux
-	antibody bundle tmuxinator/tmuxinator folder:completion
+	antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
+	antibody bundle tmuxinator/tmuxinator path:completion
 fi
 
 # Ruby
-# antibody bundle robbyrussell/oh-my-zsh folder:plugins/rails
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/heroku
+# antibody bundle robbyrussell/oh-my-zsh path:plugins/rails
+antibody bundle robbyrussell/oh-my-zsh path:plugins/heroku
 
 # Docker
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/docker
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/docker-compose
+antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
+antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
 
 # Python
-#antibody bundle robbyrussell/oh-my-zsh folder:plugins/pip
-#antibody bundle robbyrussell/oh-my-zsh folder:plugins/python
-#antibody bundle robbyrussell/oh-my-zsh folder:plugins/virtualenv
-#antibody bundle robbyrussell/oh-my-zsh folder:plugins/virtualenvwrapper
+#antibody bundle robbyrussell/oh-my-zsh path:plugins/pip
+#antibody bundle robbyrussell/oh-my-zsh path:plugins/python
+#antibody bundle robbyrussell/oh-my-zsh path:plugins/virtualenv
+#antibody bundle robbyrussell/oh-my-zsh path:plugins/virtualenvwrapper
 
 # Node
-#antibody bundle robbyrussell/oh-my-zsh folder:plugins/coffee
-#antibody bundle robbyrussell/oh-my-zsh folder:plugins/node
-#antibody bundle robbyrussell/oh-my-zsh folder:plugins/npm
+#antibody bundle robbyrussell/oh-my-zsh path:plugins/coffee
+#antibody bundle robbyrussell/oh-my-zsh path:plugins/node
+#antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
 
 # Various
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/vagrant
+antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 
 # Mac
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/brew
+antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
 
 antibody bundle sindresorhus/pure
 antibody bundle zsh-users/zsh-syntax-highlighting
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/asdf
+antibody bundle robbyrussell/oh-my-zsh path:plugins/asdf
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
