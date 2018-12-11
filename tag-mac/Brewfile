@@ -8,6 +8,7 @@ tap 'jeffreywildman/homebrew-virt-manager'
 tap 'caskroom/cask'
 tap 'shopify/shopify'
 tap 'wallix/awless'
+tap 'beeftornado/rmtree'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -17,6 +18,7 @@ brew 'libxml2'
 # Tools
 brew 'ctags'
 brew 'git'
+brew 'hg'
 brew 'rcm'
 brew 'xz', args: ['universal']
 brew 'the_silver_searcher'
@@ -69,7 +71,6 @@ brew 'python3'
 brew 'neovim'
 brew 'readline'
 brew 'ruby-build'
-brew 'crystal-lang', args: ['--with-llvm']
 cask 'android-studio'
 
 # Virtualization
