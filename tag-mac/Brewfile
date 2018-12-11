@@ -64,7 +64,7 @@ brew 'qt'
 # Development
 brew 'libyaml' # should come after openssl
 brew 'node'
-brew 'python'
+brew 'python2'
 brew 'python3'
 brew 'neovim'
 brew 'readline'
