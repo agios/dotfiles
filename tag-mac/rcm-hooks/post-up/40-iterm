@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Set different iterm preferences folder
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/iterm2"
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
