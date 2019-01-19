@@ -7,6 +7,7 @@ tap 'caskroom/cask'
 tap 'shopify/shopify'
 tap 'wallix/awless'
 tap 'beeftornado/rmtree'
+tap 'getantibody/tap'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -22,6 +23,7 @@ brew 'xz', args: ['universal']
 brew 'the_silver_searcher'
 brew 'tmux'
 brew 'zsh'
+brew 'antibody'
 brew 'htop'
 brew 'nmap'
 brew 'ipcalc'
@@ -43,8 +45,8 @@ cask 'xquartz'
 brew 'freerdp'
 brew 'syncthing', restart_service: :changed
 brew 'mas'
-brew 'virt-viewer'
 brew 'virt-manager'
+brew 'virt-viewer'
 brew 'themekit'
 brew 'mobile-shell'
 cask 'tunnelblick'
@@ -53,7 +55,6 @@ brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-
 cask 'caskroom/versions/java8' # required for squirrelsql
 cask 'squirrelsql'
 cask 'pgadmin4'
-cask 'rdm'
 
 # Image manipulation
 brew 'imagemagick'
