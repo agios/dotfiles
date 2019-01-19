@@ -4,15 +4,18 @@ if !(asdf list ruby > /dev/null); then
   asdf plugin-add ruby
 fi
 
-find_latest_ruby() {
-  asdf list-all ruby | grep -v - | tail -1 | sed -e 's/^ *//'
+if !(asdf list python > /dev/null); then
+  asdf plugin-add python
+fi
+
+find_latest() {
+  asdf list-all $1 | grep -v - | tail -1 | sed -e 's/^ *//'
 }
 
-ruby_version="$(find_latest_ruby)"
+os="$(uname)"
 
+ruby_version="$(find_latest ruby)"
 if !(asdf list ruby | grep "$ruby_version" > /dev/null); then
-  os="$(uname)"
-
   # Pre tasks
   case $os in
   Linux)
@@ -42,5 +45,21 @@ if !(asdf list ruby | grep "$ruby_version" > /dev/null); then
     bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2
     ;;
   esac
+fi
+
+python_version="$(find_latest python)"
+if !(asdf list python | grep "$python_version" > /dev/null); then
+  # Pre tasks
+  case $os in
+  Linux)
+    ;;
+  Darwin)
+    export LDFLAGS="-L/usr/local/opt/zlib/lib"
+    export CPPFLAGS="-I/usr/local/opt/zlib/include"
+    export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+    ;;
+  esac
+
+  asdf install python "$python_version"
 fi
 

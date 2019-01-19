@@ -12,6 +12,8 @@ cask_args appdir: '/Applications'
 
 # Libs
 brew 'openssl'
+brew 'readline'
+brew 'zlib'
 brew 'libxml2'
 
 # Tools
@@ -65,10 +67,7 @@ brew 'qt'
 # Development
 brew 'libyaml' # should come after openssl
 brew 'node'
-brew 'python2'
-brew 'python3'
 brew 'neovim'
-brew 'readline'
 brew 'ruby-build'
 cask 'android-studio'
 
