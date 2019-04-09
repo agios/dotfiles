@@ -1,2 +1,6 @@
-ruby 2.5.1
-python 3.7.2
+ruby 2.6.2
+python 3.7.3
+golang 1.12.1
+elixir 1.8.1
+rust 1.33.0
+erlang 21.3
