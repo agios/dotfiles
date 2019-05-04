@@ -3,6 +3,8 @@
 autoload -Uz compinit
 compinit
 
+setopt correct
+
 source <(antibody init)
 
 antibody bundle robbyrussell/oh-my-zsh path:lib
@@ -13,7 +15,6 @@ antibody bundle mafredri/zsh-async
 # Basic bundles
 antibody bundle robbyrussell/oh-my-zsh path:plugins/gitfast
 antibody bundle robbyrussell/oh-my-zsh path:plugins/github
-antibody bundle robbyrussell/oh-my-zsh path:plugins/command-not-found
 if (( $+commands[tmux] )) ; then
 	antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
 	antibody bundle tmuxinator/tmuxinator path:completion
