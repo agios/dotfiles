@@ -13,11 +13,12 @@ antibody bundle robbyrussell/oh-my-zsh path:lib
 antibody bundle mafredri/zsh-async
 
 # Basic bundles
+antibody bundle robbyrussell/oh-my-zsh path:plugins/git
 antibody bundle robbyrussell/oh-my-zsh path:plugins/gitfast
 antibody bundle robbyrussell/oh-my-zsh path:plugins/github
 if (( $+commands[tmux] )) ; then
-	antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
-	antibody bundle tmuxinator/tmuxinator path:completion
+  antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
+  antibody bundle tmuxinator/tmuxinator path:completion
 fi
 
 # Ruby
