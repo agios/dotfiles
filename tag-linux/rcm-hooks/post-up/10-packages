@@ -1,6 +1,6 @@
 #!/bin/sh
 
-check_all_packages git curl vim zsh htop glances nmon nodejs nodejs-legacy npm tmux cmake \
+check_all_packages git git-flow curl vim zsh htop glances nmon nodejs nodejs-legacy npm tmux cmake \
   exuberant-ctags silversearcher-ag imagemagick \
   libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libqtwebkit-dev libreadline-dev \
   libsqlite3-dev sqlite3 postgresql postgresql-server-dev-all redis-server

@@ -3,6 +3,11 @@
 # Path for custom completions
 fpath=(~/.zsh/completion $fpath)
 
+# Remove the zsh completion shipped by Homebrew git.
+# https://github.com/Homebrew/homebrew-core/issues/33275
+[[ -f /usr/local/share/zsh/site-functions/_git ]] && \
+  rm  -f /usr/local/share/zsh/site-functions/_git
+
 PATH="/usr/local/sbin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH="$PATH:/Library/TeX/texbin"

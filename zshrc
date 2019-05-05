@@ -14,6 +14,7 @@ antibody bundle mafredri/zsh-async
 
 # Basic bundles
 antibody bundle robbyrussell/oh-my-zsh path:plugins/git
+antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow-avh
 antibody bundle robbyrussell/oh-my-zsh path:plugins/gitfast
 antibody bundle robbyrussell/oh-my-zsh path:plugins/github
 if (( $+commands[tmux] )) ; then

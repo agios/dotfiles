@@ -19,6 +19,7 @@ brew 'libxml2'
 # Tools
 brew 'ctags'
 brew 'git'
+brew 'git-flow-avh'
 brew 'hg'
 brew 'rcm'
 brew 'xz', args: ['universal']
