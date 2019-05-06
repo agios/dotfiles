@@ -51,6 +51,8 @@ antibody bundle sindresorhus/pure
 antibody bundle zsh-users/zsh-syntax-highlighting
 antibody bundle robbyrussell/oh-my-zsh path:plugins/asdf
 
+eval "$(fasd --init auto)"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

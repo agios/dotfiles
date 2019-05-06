@@ -1,7 +1,11 @@
 #!/bin/sh
 
+if ! grep -q "^deb .*aacebedo/fasd" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+  sudo add-apt-repository -u ppa:aacebedo/fasd
+fi
+
 check_all_packages git git-flow curl vim zsh htop glances nmon nodejs nodejs-legacy npm tmux cmake \
-  exuberant-ctags silversearcher-ag imagemagick \
+  exuberant-ctags silversearcher-ag fasd imagemagick \
   libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libqtwebkit-dev libreadline-dev \
   libsqlite3-dev sqlite3 postgresql postgresql-server-dev-all redis-server
 
