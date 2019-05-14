@@ -7,6 +7,7 @@ setopt correct
 
 source <(antibody init)
 
+DISABLE_AUTO_TITLE="true"
 antibody bundle robbyrussell/oh-my-zsh path:lib
 
 # Load the theme.
