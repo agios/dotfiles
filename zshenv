@@ -34,6 +34,10 @@ export LC_ALL=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 #export FZF_DEFAULT_OPTS='--exact'
 
+export ZSH_CACHE_DIR=~/.zsh/cache
+
+DISABLE_AUTO_TITLE="true"
+
 if [ -n "$TMUX" ]; then
   function refresh {
     sshauth=$(tmux show-environment | grep "^SSH_AUTH_SOCK")

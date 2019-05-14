@@ -7,7 +7,6 @@ setopt correct
 
 source <(antibody init)
 
-DISABLE_AUTO_TITLE="true"
 antibody bundle robbyrussell/oh-my-zsh path:lib
 
 # Load the theme.
@@ -34,8 +33,6 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
 # Python
 #antibody bundle robbyrussell/oh-my-zsh path:plugins/pip
 #antibody bundle robbyrussell/oh-my-zsh path:plugins/python
-#antibody bundle robbyrussell/oh-my-zsh path:plugins/virtualenv
-#antibody bundle robbyrussell/oh-my-zsh path:plugins/virtualenvwrapper
 
 # Node
 #antibody bundle robbyrussell/oh-my-zsh path:plugins/coffee
@@ -43,7 +40,8 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
 #antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
 
 # Various
-antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
+# antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
+antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
 
 # Mac
 antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
