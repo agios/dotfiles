@@ -44,3 +44,10 @@ rails-engine-defaults: &rails-engine-defaults
         panes:
           - guard
           -
+
+vue-docker-defaults: &vue-docker-defaults
+  pre_window: <%= pre_window %>
+  windows:
+    - editor: vim
+    - app: docker-compose run --service-ports app
+    - shell:
