@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ -d "$2" ]; then
+  dirname=$2
+else
+  dirname=$(dirname -- "$2")
+fi
+filename=$(basename -- "$1")
+extension="${filename##*.}"
+if hash gmd5sum 2>/dev/null; then
+  md5=$(gmd5sum "$1")
+else
+  md5=$(md5sum "$1")
+fi
+cp -np "$1" "$dirname"/"$(echo $md5 | cut -f1 -d' ')"."$extension"

@@ -17,6 +17,7 @@ brew 'zlib'
 brew 'libxml2'
 
 # Tools
+brew 'coreutils'
 brew 'ctags'
 brew 'git'
 brew 'git-flow-avh'
