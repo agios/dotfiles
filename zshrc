@@ -71,3 +71,5 @@ if [[ $- == *i* ]]; then # Running in an interactive shell
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/bin:$PATH"

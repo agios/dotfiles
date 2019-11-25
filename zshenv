@@ -9,7 +9,6 @@ fpath=(~/.zsh/completion $fpath)
   rm  -f /usr/local/share/zsh/site-functions/_git
 
 PATH="/usr/local/sbin:$PATH"
-PATH="$HOME/bin:$PATH"
 PATH="$PATH:/Library/TeX/texbin"
 
 export GOPATH=$HOME/go
