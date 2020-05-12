@@ -2,3 +2,4 @@
 
 sudo npm install -g yarn eslint eslint-plugin-vue
 
+yarn global add neovim vue-language-server

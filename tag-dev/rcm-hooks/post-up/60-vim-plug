@@ -1,4 +1,3 @@
 #!/bin/sh
 
-nvim +PlugInstall +qall
-nvim +UpdateRemotePlugins +qall
+nvim +PlugInstall +UpdateRemotePlugins +qa!

@@ -8,6 +8,10 @@ if !(asdf list python > /dev/null); then
   asdf plugin-add python
 fi
 
+if !(asdf list nodejs > /dev/null); then
+  asdf plugin-add nodejs
+fi
+
 find_latest() {
   asdf list-all $1 | grep -v - | tail -1 | sed -e 's/^ *//'
 }
