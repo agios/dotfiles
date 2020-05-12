@@ -26,6 +26,7 @@ alias docker-compose='GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` docker-compos
 alias view='vim -R'
 alias lc="colorls --sort-dirs"
 alias ll="colorls --sort-dirs --git-status -l"
+alias dco="docker-compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.osx.yml"
 
 # Backward search with patterns
 bindkey '^r' history-incremental-pattern-search-backward
