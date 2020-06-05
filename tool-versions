@@ -4,3 +4,4 @@ golang 1.12.1
 elixir 1.8.1
 rust 1.35.0
 erlang 21.3
+nodejs 12.4.0
