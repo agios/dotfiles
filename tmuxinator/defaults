@@ -45,6 +45,14 @@ rails-engine-defaults: &rails-engine-defaults
           - guard
           -
 
+docker-defaults: &docker-defaults
+  pre_window: <%= pre_window %>
+  windows:
+    - editor: vim
+    - app: docker-compose up
+    - docker: docker-compose run app bash
+    - shell:
+
 vue-docker-defaults: &vue-docker-defaults
   pre_window: <%= pre_window %>
   windows:
