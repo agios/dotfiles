@@ -5,6 +5,8 @@ compinit
 
 setopt correct
 
+export PATH="$HOME/bin:$PATH"
+
 source <(antibody init)
 
 antibody bundle robbyrussell/oh-my-zsh path:lib
@@ -71,7 +73,5 @@ if [[ $- == *i* ]]; then # Running in an interactive shell
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
