@@ -1,6 +1,7 @@
 #!/bin/sh
 
 if !(which antibody > /dev/null); then
+  cd
   curl -sL git.io/antibody | sh -s
 fi
 
