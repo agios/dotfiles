@@ -2,7 +2,7 @@ execute 'runtime!' 'plugins.vim'
 execute 'runtime!' 'style.vim'
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+call deoplete#custom#option('smart_case', v:true)
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Fast editing of init.vim
@@ -92,6 +92,7 @@ nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " Search tweaks
 " Clear last search

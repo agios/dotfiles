@@ -27,7 +27,7 @@ Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'tpope/vim-endwise' "messes up UltiSnip <CR> completion
 Plug 'tpope/vim-eunuch'
-Plug 'edsono/vim-matchit'
+Plug 'chrisbra/matchit'
 Plug 'craigemery/vim-autotag'
 
 " Snippets and completion
@@ -57,6 +57,6 @@ Plug 'greyblake/vim-preview'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'cespare/vim-toml'
 Plug 'ClockworkNet/vim-junos-syntax'
-Plug 'grawity/vim-mikrotik'
+Plug 'zainin/vim-mikrotik'
 
 call plug#end()
