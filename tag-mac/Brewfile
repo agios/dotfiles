@@ -1,13 +1,13 @@
 tap 'thoughtbot/formulae'
 tap 'homebrew/services'
-tap 'linode/cli'
 tap 'neovim/neovim'
 tap 'jeffreywildman/homebrew-virt-manager'
-tap 'caskroom/cask'
+tap 'homebrew/cask'
 tap 'shopify/shopify'
 tap 'wallix/awless'
 tap 'beeftornado/rmtree'
 tap 'getantibody/tap'
+tap 'xwmx/taps'
 cask_args appdir: '/Applications'
 
 # Libs
@@ -21,6 +21,7 @@ brew 'coreutils'
 brew 'ctags'
 brew 'git'
 brew 'git-flow-avh'
+brew 'bzip2'
 brew 'hg'
 brew 'rcm'
 brew 'xz', args: ['universal']
@@ -32,7 +33,8 @@ brew 'htop'
 brew 'glances'
 brew 'nmap'
 brew 'ipcalc'
-brew 'unrar'
+brew 'telnet'
+cask 'rar'
 brew 'dos2unix'
 brew 'jq'
 brew 'pv'
@@ -44,13 +46,13 @@ brew 'watch'
 brew 'awless'
 
 # Clients
+brew 'yubikey-agent'
 brew 'hub'
 brew 's3cmd'
 brew 'awscli'
-brew 'linode-cli'
 brew 'aws-shell'
-cask 'xquartz'
-brew 'freerdp'
+#cask 'xquartz'
+#brew 'freerdp'
 brew 'syncthing', restart_service: :changed
 brew 'mas'
 brew 'virt-manager'
@@ -60,9 +62,10 @@ brew 'mobile-shell'
 cask 'tunnelblick'
 cask 'adium'
 brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-perl', '--with-ruby', '--with-lua', '--with-guile']
-cask 'caskroom/versions/java8' # required for squirrelsql
+cask 'homebrew/cask-versions/adoptopenjdk8' # required for squirrelsql
 cask 'squirrelsql'
 cask 'pgadmin4'
+cask 'keepassxc'
 
 # Image manipulation
 brew 'imagemagick'
@@ -90,22 +93,21 @@ brew 'freetds'
 # Utilities
 brew 'reattach-to-user-namespace'
 brew 'gnupg2'
-brew 'gpg-agent'
 brew 'maxima'
-mas 'LastPass', id: 926036361
+brew 'airport'
 mas 'Slack', id: 803453959
 mas 'The Unarchiver', id: 425424353
 mas 'Todoist: To Do List | Task List', id: 585829637
-mas 'Growl', id: 467939042
+cask 'alacritty'
 cask 'google-chrome'
 cask 'firefox'
 cask 'libreoffice'
-cask 'mactex'
-cask 'iterm2'
-cask 'alacritty'
+cask 'visual-studio-code'
 cask 'inkscape'
 cask 'gimp'
-cask 'calibre'
 cask 'teamviewer'
+cask 'anydesk'
 cask 'playonmac'
-cask 'visual-studio-code'
+cask 'calibre'
+#cask 'mactex'
+
