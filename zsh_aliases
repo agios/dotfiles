@@ -10,11 +10,16 @@ alias gh='git hist'
 alias gha='git hist --all'
 alias ghb='git hist --branches'
 alias ghf='git hist --first-parent'
-alias gd='git icdiff'
 
 alias mux='tmuxinator'
-if (( $+commands[icdiff] )) ; then
-  alias diff="icdiff"
+if (( $+commands[delta] )) ; then
+  alias diff="delta"
+fi
+if (( $+commands[bat] )) ; then
+  alias cat="bat"
+fi
+if (( $+commands[batcat] )) ; then
+  alias cat="batcat"
 fi
 if (( $+commands[thefuck] )) ; then
   eval "$(thefuck --alias)"
