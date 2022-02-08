@@ -24,7 +24,7 @@ Plug 'bronson/vim-trailing-whitespace'
 " Coding
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'benekastah/neomake'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-endwise' "messes up UltiSnip <CR> completion
 Plug 'tpope/vim-eunuch'
 Plug 'chrisbra/matchit'

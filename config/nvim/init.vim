@@ -26,11 +26,11 @@ autocmd User Fugitive
   \  nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
 autocmd BufReadPost fugitive://* set bufhidden=delete
-map <leader>b :Gblame -wMCCC<cr>
+map <leader>b :Git blame -wMCCC<cr>
 
 " GitGutter
 " Re-enable default mapping
-nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hs <Plug>(GitGutterStageHunk)
 
 " FZF config
 nnoremap <silent> <C-p>  :Files<cr>
@@ -88,11 +88,8 @@ nmap <silent> <Leader>t :call ReCreateTags()<CR>
 " Delete trailing spaces
 nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" NERDCommenter
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
+autocmd FileType rsc setlocal commentstring=#\ %s
+autocmd FileType ansible_hosts setlocal commentstring=#\ %s
 
 " Search tweaks
 " Clear last search
