@@ -1,0 +1,13 @@
+#!/bin/sh
+
+check_all_packages bat
+
+if (!(which delta > /dev/null)); then
+  DELTA_VER=0.11.3
+  DELTA_DEB="git-delta_${DELTA_VER}_$(dpkg-architecture -q DEB_HOST_ARCH).deb"
+  DELTA_URL="https://github.com/dandavison/delta/releases/download/${DELTA_VER}/${DELTA_DEB}"
+  DELTA_FILE="/tmp/${DELTA_DEB}"
+  curl -L -o $DELTA_FILE $DELTA_URL
+  sudo dpkg -i $DELTA_FILE
+  rm -f $DELTA_FILE
+fi
