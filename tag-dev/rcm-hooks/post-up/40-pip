@@ -1,5 +1,5 @@
 #!/bin/sh
 
-pip2 install --user --upgrade neovim
-pip3 install --user --upgrade neovim
+(which pip2 > /dev/null) && pip2 install --user --upgrade neovim
+(which pip3 > /dev/null) && pip3 install --user --upgrade neovim
 

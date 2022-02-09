@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if !(which xcape > /dev/null); then
+if (!(which xcape > /dev/null)) && (which dconf > /dev/null); then
   # Download xcape and install it in ~/.bin
   git clone https://github.com/alols/xcape.git /tmp/xcape
   sudo apt-get install -y gcc make pkg-config libx11-dev libxtst-dev libxi-dev
