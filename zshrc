@@ -51,6 +51,7 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
 antibody bundle sindresorhus/pure
 antibody bundle zsh-users/zsh-syntax-highlighting
 antibody bundle robbyrussell/oh-my-zsh path:plugins/asdf
+antibody bundle robbyrussell/oh-my-zsh path:plugins/gpg-agent
 
 if (( $+commands[fasd] )) ; then
   eval "$(fasd --init auto)"
