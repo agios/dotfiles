@@ -107,6 +107,8 @@ nmap <silent> <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 autocmd FileType rsc setlocal commentstring=#\ %s
 autocmd FileType ansible_hosts setlocal commentstring=#\ %s
+autocmd FileType c setlocal commentstring=//\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
 
 " Search tweaks
 " Clear last search
