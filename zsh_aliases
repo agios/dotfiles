@@ -6,7 +6,6 @@ fi
 
 # Git
 alias gclean='git reset --hard && git clean -df'
-alias gh='git hist'
 alias gha='git hist --all'
 alias ghb='git hist --branches'
 alias ghf='git hist --first-parent'

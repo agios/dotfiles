@@ -38,3 +38,7 @@
 	conflictstyle = diff3
 [diff]
 	colorMoved = default
+[diff "ansible-vault"]
+	textconv = ansible-vault view
+[init]
+	defaultBranch = main
