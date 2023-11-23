@@ -1,9 +1,9 @@
-execute 'runtime!' 'plugins.vim'
 execute 'runtime!' 'style.vim'
+execute 'runtime!' 'plugins.vim'
 
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('smart_case', v:true)
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#option('smart_case', v:true)
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Fast editing of init.vim
 map <leader>e :vsp ~/.config/nvim/init.vim<cr>
@@ -36,6 +36,27 @@ nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nnoremap <silent> <C-p>  :Files<cr>
 inoremap <silent> <C-p>  <ESC>:Files<cr>
 
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 " See mappings using fzf
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -43,11 +64,6 @@ omap <leader><tab> <plug>(fzf-maps-o)
 
 " crontab editing
 autocmd filetype crontab setlocal nobackup nowritebackup
-
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
 
 " Use space as a searching prefix
 nnoremap    [search]   <Nop>
@@ -61,6 +77,7 @@ nnoremap <silent> [search]t  :Tags<CR>
 nnoremap <silent> [search]T  :BTags<CR>
 nnoremap <silent> [search]?  :History<CR>
 nnoremap <silent> [search]/  :execute 'Ag ' . input('Ag/')<CR>
+nnoremap <silent> [search]w  :execute 'Ag TODO'<CR>
 nnoremap <silent> [search]gl :Commits<CR>
 nnoremap <silent> [search]ga :BCommits<CR>
 
@@ -71,7 +88,7 @@ autocmd Filetype make setlocal ts=4 sw=4 sts=0 noexpandtab
 
 " Ruby development
 " TODOS
-map \q i#TODO<SPACE>
+map \q i#TODO:<SPACE>
 map \w :grep -R --binary-files=without-match --exclude=*~ TODO --exclude=*.html * <CR> :copen <CR>
 " Hashrocket to json syntax conversion
 nmap <silent> <Leader>h :let _s=@/<Bar>:%s/:\([^=,]*\) =>/\1:/g<Bar>:let @/=_s<Bar>:nohl<CR>

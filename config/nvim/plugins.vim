@@ -22,13 +22,14 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 
 " Coding
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-endwise' "messes up UltiSnip <CR> completion
 Plug 'tpope/vim-eunuch'
 Plug 'chrisbra/matchit'
 Plug 'craigemery/vim-autotag'
+Plug 'github/copilot.vim'
 
 " Snippets and completion
 Plug 'SirVer/ultisnips'
