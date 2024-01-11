@@ -19,6 +19,7 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/git
 antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow-avh
 antibody bundle robbyrussell/oh-my-zsh path:plugins/gitfast
 antibody bundle robbyrussell/oh-my-zsh path:plugins/github
+antibody bundle robbyrussell/oh-my-zsh path:plugins/dotenv
 if (( $+commands[tmux] )) ; then
   antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
   antibody bundle tmuxinator/tmuxinator path:completion
@@ -26,7 +27,6 @@ fi
 
 # Ruby
 # antibody bundle robbyrussell/oh-my-zsh path:plugins/rails
-antibody bundle robbyrussell/oh-my-zsh path:plugins/heroku
 
 # Docker
 antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
