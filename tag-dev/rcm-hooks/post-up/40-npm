@@ -1,5 +1,5 @@
 #!/bin/sh
 
-sudo npm install -g yarn eslint eslint-plugin-vue
+npm install yarn eslint eslint-plugin-vue
 
 yarn global add neovim vls

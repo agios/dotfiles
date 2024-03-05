@@ -2,9 +2,7 @@ tap 'thoughtbot/formulae'
 tap 'homebrew/services'
 tap 'neovim/neovim'
 tap 'jeffreywildman/homebrew-virt-manager'
-tap 'homebrew/cask'
 tap 'shopify/shopify'
-tap 'wallix/awless'
 tap 'beeftornado/rmtree'
 tap 'xwmx/taps'
 cask_args appdir: '/Applications'
@@ -39,11 +37,10 @@ brew 'dos2unix'
 brew 'jq'
 brew 'pv'
 brew 'lnav'
-brew 'fasd'
 brew 'gawk'
 brew 'gnu-sed'
 brew 'watch'
-brew 'awless'
+brew 'pinentry-mac'
 
 # Clients
 brew 'yubikey-agent'
@@ -58,11 +55,12 @@ brew 'mas'
 brew 'virt-manager'
 brew 'virt-viewer'
 brew 'themekit'
-brew 'mobile-shell'
-cask 'tunnelblick'
+brew 'mosh'
+# cask 'tunnelblick'
 cask 'adium'
-brew 'weechat', args: ['--with-aspell', '--with-curl', '--with-python', '--with-perl', '--with-ruby', '--with-lua', '--with-guile']
+brew 'weechat'
 cask 'homebrew/cask-versions/adoptopenjdk8' # required for squirrelsql
+brew 'pgcli'
 cask 'squirrelsql'
 cask 'pgadmin4'
 cask 'keepassxc'
@@ -78,10 +76,9 @@ brew 'libyaml' # should come after openssl
 brew 'node'
 brew 'neovim'
 brew 'ruby-build'
-cask 'android-studio'
+# cask 'android-studio'
 
 # Virtualization
-brew 'xhyve', args: ['HEAD']
 cask 'virtualbox', restart_service: :changed
 cask 'vagrant'
 
@@ -92,17 +89,15 @@ brew 'freetds'
 
 # Utilities
 brew 'reattach-to-user-namespace'
-brew 'gnupg2'
+brew 'gnupg'
 brew 'maxima'
 brew 'airport'
-mas 'Slack', id: 803453959
 mas 'The Unarchiver', id: 425424353
-mas 'Todoist: To Do List | Task List', id: 585829637
 cask 'alacritty'
-cask 'google-chrome'
-cask 'firefox'
+# cask 'google-chrome'
+# cask 'firefox'
 cask 'libreoffice'
-cask 'visual-studio-code'
+# cask 'visual-studio-code'
 cask 'inkscape'
 cask 'gimp'
 cask 'teamviewer'

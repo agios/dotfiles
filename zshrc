@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+# Prevent OSX from screwing up PATH
+if (( $(uname) == "Darwin" )) ; then
+  PATH=""
+  source /etc/profile
+fi
+
 autoload -Uz compinit
 compinit
 
@@ -14,12 +20,16 @@ antibody bundle robbyrussell/oh-my-zsh path:lib
 # Load the theme.
 antibody bundle mafredri/zsh-async
 
+# Mac, homebrew needs to be loaded early
+antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
+
 # Basic bundles
 antibody bundle robbyrussell/oh-my-zsh path:plugins/git
 antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow-avh
 antibody bundle robbyrussell/oh-my-zsh path:plugins/gitfast
 antibody bundle robbyrussell/oh-my-zsh path:plugins/github
 antibody bundle robbyrussell/oh-my-zsh path:plugins/dotenv
+antibody bundle robbyrussell/oh-my-zsh path:plugins/z
 if (( $+commands[tmux] )) ; then
   antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
   antibody bundle tmuxinator/tmuxinator path:completion
@@ -45,17 +55,10 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
 # antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
 
-# Mac
-antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
-
 antibody bundle sindresorhus/pure
 antibody bundle zsh-users/zsh-syntax-highlighting
 antibody bundle robbyrussell/oh-my-zsh path:plugins/asdf
-antibody bundle robbyrussell/oh-my-zsh path:plugins/gpg-agent
-
-if (( $+commands[fasd] )) ; then
-  eval "$(fasd --init auto)"
-fi
+antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -77,4 +80,4 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

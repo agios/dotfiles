@@ -43,6 +43,10 @@ if [ -n "$TMUX" ]; then
     if [ $sshauth ]; then
       export $sshauth
     fi
+    sshpid=$(tmux show-environment | grep "^SSH_AGENT_PID")
+    if [ $sshpid ]; then
+      export $sshpid
+    fi
     display=$(tmux show-environment | grep "^DISPLAY")
     if [ $display ]; then
       export $display
