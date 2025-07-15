@@ -24,12 +24,12 @@ rails-docker-defaults: &rails-docker-defaults
   pre_window: <%= pre_window %>
   windows:
     - editor: vim
-    - rails: docker-compose up
+    - rails: docker compose up
     - test:
         - <%= guard_env %>
         - sleep 2
         - bundle exec guard
-    - docker: docker-compose run app bash
+    - docker: docker compose run app bash
     - shell:
 
 rails-engine-defaults: &rails-engine-defaults
@@ -49,13 +49,13 @@ docker-defaults: &docker-defaults
   pre_window: <%= pre_window %>
   windows:
     - editor: vim
-    - app: docker-compose up
-    - docker: docker-compose run app bash
+    - app: docker compose up
+    - docker: docker compose run app bash
     - shell:
 
 vue-docker-defaults: &vue-docker-defaults
   pre_window: <%= pre_window %>
   windows:
     - editor: vim
-    - app: docker-compose run --service-ports app
+    - app: docker compose run --service-ports app
     - shell:
