@@ -1,9 +1,9 @@
-ruby 3.1.2
+ruby 3.4.4
 python 3.12.2
 golang 1.19.3
 elixir 1.8.1
-rust 1.64.0
+rust 1.85.1
 erlang 21.3
-nodejs 18.8.0
+nodejs 20.18.0
 yarn 1.22.5
 java openjdk-19
