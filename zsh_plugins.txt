@@ -1,0 +1,43 @@
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/extract
+
+# Load the theme.
+mafredri/zsh-async
+
+# Mac, homebrew needs to be loaded early
+ohmyzsh/ohmyzsh path:plugins/brew
+
+# Basic bundles
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/git-flow-avh
+ohmyzsh/ohmyzsh path:plugins/gitfast
+ohmyzsh/ohmyzsh path:plugins/github
+ohmyzsh/ohmyzsh path:plugins/dotenv
+ohmyzsh/ohmyzsh path:plugins/z
+
+# Ruby
+# ohmyzsh/ohmyzsh path:plugins/rails
+
+# Docker
+ohmyzsh/ohmyzsh path:plugins/docker
+ohmyzsh/ohmyzsh path:plugins/docker-compose
+
+# Python
+#ohmyzsh/ohmyzsh path:plugins/pip
+#ohmyzsh/ohmyzsh path:plugins/python
+
+# Node
+#ohmyzsh/ohmyzsh path:plugins/coffee
+#ohmyzsh/ohmyzsh path:plugins/node
+#ohmyzsh/ohmyzsh path:plugins/npm
+
+# Various
+# ohmyzsh/ohmyzsh path:plugins/vagrant
+ohmyzsh/ohmyzsh path:plugins/kubectl
+
+sindresorhus/pure
+zsh-users/zsh-syntax-highlighting
+ohmyzsh/ohmyzsh path:plugins/asdf
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
+

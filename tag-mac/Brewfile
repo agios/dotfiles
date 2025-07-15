@@ -35,12 +35,21 @@ brew 'telnet'
 cask 'rar'
 brew 'dos2unix'
 brew 'jq'
+brew 'otree'
 brew 'pv'
 brew 'lnav'
 brew 'gawk'
 brew 'gnu-sed'
 brew 'watch'
 brew 'pinentry-mac'
+
+# Development
+brew 'libyaml' # should come after openssl
+brew 'node'
+brew 'neovim'
+brew 'ruby-build'
+brew 'asdf'
+# cask 'android-studio'
 
 # Clients
 brew 'yubikey-agent'
@@ -50,7 +59,6 @@ brew 'awscli'
 brew 'aws-shell'
 #cask 'xquartz'
 #brew 'freerdp'
-brew 'syncthing', restart_service: :changed
 brew 'mas'
 brew 'virt-manager'
 brew 'virt-viewer'
@@ -70,13 +78,6 @@ brew 'imagemagick'
 
 # Testing
 brew 'qt'
-
-# Development
-brew 'libyaml' # should come after openssl
-brew 'node'
-brew 'neovim'
-brew 'ruby-build'
-# cask 'android-studio'
 
 # Virtualization
 cask 'virtualbox', restart_service: :changed

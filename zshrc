@@ -1,10 +1,10 @@
 #!/bin/zsh
 
 # Prevent OSX from screwing up PATH
-if (( $(uname) == "Darwin" )) ; then
-  PATH=""
-  source /etc/profile
-fi
+# if (( $(uname) == "Darwin" )) ; then
+#   PATH=""
+#   source /etc/profile
+# fi
 
 autoload -Uz compinit
 compinit
@@ -13,52 +13,19 @@ setopt correct
 
 export PATH="$HOME/bin:$PATH"
 
-source <(antibody init)
-
-antibody bundle robbyrussell/oh-my-zsh path:lib
-
-# Load the theme.
-antibody bundle mafredri/zsh-async
-
-# Mac, homebrew needs to be loaded early
-antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
-
-# Basic bundles
-antibody bundle robbyrussell/oh-my-zsh path:plugins/git
-antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow-avh
-antibody bundle robbyrussell/oh-my-zsh path:plugins/gitfast
-antibody bundle robbyrussell/oh-my-zsh path:plugins/github
-antibody bundle robbyrussell/oh-my-zsh path:plugins/dotenv
-antibody bundle robbyrussell/oh-my-zsh path:plugins/z
-if (( $+commands[tmux] )) ; then
-  antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
-  antibody bundle tmuxinator/tmuxinator path:completion
+zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
+source ${ZDOTDIR:-$HOME}/.antidote/antidote.zsh
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  (
+    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+  )
 fi
+source ${zsh_plugins}.zsh
 
-# Ruby
-# antibody bundle robbyrussell/oh-my-zsh path:plugins/rails
-
-# Docker
-antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
-antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
-
-# Python
-#antibody bundle robbyrussell/oh-my-zsh path:plugins/pip
-#antibody bundle robbyrussell/oh-my-zsh path:plugins/python
-
-# Node
-#antibody bundle robbyrussell/oh-my-zsh path:plugins/coffee
-#antibody bundle robbyrussell/oh-my-zsh path:plugins/node
-#antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
-
-# Various
-# antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
-antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
-
-antibody bundle sindresorhus/pure
-antibody bundle zsh-users/zsh-syntax-highlighting
-antibody bundle robbyrussell/oh-my-zsh path:plugins/asdf
-antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
+if (( $+commands[tmux] )) ; then
+  source <(antidote bundle ohmyzsh/ohmyzsh path:plugins/tmux)
+  source <(antidote bundle tmuxinator/tmuxinator path:completion)
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -81,3 +48,6 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Created by `pipx` on 2025-01-21 14:12:18
+export PATH="$PATH:/Users/agios/.local/bin"

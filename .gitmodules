@@ -1,6 +1,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "tag-dev/asdf"]
-	path = tag-dev/asdf
-	url = https://github.com/asdf-vm/asdf.git
+[submodule "antidote"]
+	path = antidote
+	url = https://github.com/mattmc3/antidote.git
