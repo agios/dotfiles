@@ -26,6 +26,9 @@ if [[ "$TERM" =~ xterm.* ]]; then
   export TERM=screen-256color
 fi
 
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
+
 export EDITOR=nvim
 export LC_ALL=en_US.UTF-8
 
