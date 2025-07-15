@@ -1,11 +1,5 @@
 #!/bin/zsh
 
-# Prevent OSX from screwing up PATH
-# if (( $(uname) == "Darwin" )) ; then
-#   PATH=""
-#   source /etc/profile
-# fi
-
 autoload -Uz compinit
 compinit
 
