@@ -13,7 +13,7 @@ ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/git-flow-avh
 ohmyzsh/ohmyzsh path:plugins/gitfast
 ohmyzsh/ohmyzsh path:plugins/github
-ohmyzsh/ohmyzsh path:plugins/dotenv
+ohmyzsh/ohmyzsh path:plugins/direnv
 ohmyzsh/ohmyzsh path:plugins/z
 
 # Ruby

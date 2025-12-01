@@ -42,6 +42,7 @@ brew 'gawk'
 brew 'gnu-sed'
 brew 'watch'
 brew 'pinentry-mac'
+brew 'direnv'
 
 # Development
 brew 'libyaml' # should come after openssl
