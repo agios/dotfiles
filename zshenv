@@ -8,16 +8,15 @@ fpath=(~/.zsh/completion $fpath)
 [[ -f /usr/local/share/zsh/site-functions/_git ]] && \
   rm  -f /usr/local/share/zsh/site-functions/_git
 
-PATH="/usr/local/sbin:$PATH"
-PATH="$PATH:/Library/TeX/texbin"
+PATH="/usr/local/sbin:/usr/sbin:$PATH"
+PATH="$PATH:/Library/TeX/texbin:/opt/homebrew/opt/postgresql@16/bin"
 
 export GOPATH=$HOME/go
-PATH="$PATH:$GOPATH/bin"
-
-export ANDROID_HOME=/usr/local/opt/android-sdk
+PATH="$PATH:$GOPATH/binexport"
 
 export PATH
 
+export ANDROID_HOME=/usr/local/opt/android-sdk
 # Allow user set host aliases
 export HOSTALIASES=~/.hosts
 
