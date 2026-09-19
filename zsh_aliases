@@ -11,6 +11,15 @@ alias ghb='git hist --branches'
 alias ghf='git hist --first-parent'
 
 alias mux='tmuxinator'
+
+# Herdr projects: `hrd` fuzzy-picks one, `hrd <name>` opens it directly
+function hrd() {
+  if (( $# )); then
+    herdr-project "$@"
+  else
+    herdr-pick-project
+  fi
+}
 if (( $+commands[delta] )) ; then
   alias diff="delta"
 fi

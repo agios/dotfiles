@@ -1,0 +1,12 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+a"
+
+# Fuzzy project picker (tmuxinator-style project launcher).
+[[keys.command]]
+key = "prefix+shift+p"
+type = "popup"
+command = "herdr-pick-project"
+width = "60%"
+height = "60%"

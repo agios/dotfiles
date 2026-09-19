@@ -1,0 +1,58 @@
+{
+  "title": "Keyboard help",
+  "rules": [
+    {
+      "description": "Show keymaps",
+      "manipulators": [
+        {
+          "from": { "key_code": "f13" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/main.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "f14" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/aux.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "f15" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/number.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "f16" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/parens.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "f17" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/symbol.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "f18" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/navi.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "f19" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/function.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "f20" },
+          "to": [{ "shell_command": "/opt/homebrew/bin/pqiv -tci --scale-mode-screen-fraction=0.80 /Users/agios/projects/keyboard/ferris/util.png & osascript -e 'tell application \"System Events\" to set frontmost of process \"pqiv\" to true'" }],
+          "to_after_key_up": [{ "shell_command": "killall pqiv" }],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
