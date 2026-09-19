@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Fuzzy-pick a tmuxinator project and open it as a herdr workspace.
+set -euo pipefail
+
+project=$(herdr-project --list | fzf --prompt='project> ' --height=100% --reverse) || exit 0
+[ -n "$project" ] || exit 0
+exec herdr-project "$project"

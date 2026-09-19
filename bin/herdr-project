@@ -1,0 +1,285 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# herdr-project - open a tmuxinator project as a herdr workspace.
+#
+# Reuses the tmuxinator gem to parse ~/.tmuxinator/<name>.yml, so ERB,
+# YAML anchors and the shared `defaults` file keep working unchanged.
+# Windows become tabs, panes become splits, commands are typed into them.
+#
+#   herdr-project nemo
+#   herdr-project nemo --dry-run
+#   herdr-project --list
+
+require "json"
+require "shellwords"
+require "open3"
+
+class Herdr
+  Error = Class.new(RuntimeError)
+
+  def initialize(dry_run: false)
+    @dry_run = dry_run
+  end
+
+  def workspaces
+    call("workspace", "list").fetch("workspaces", [])
+  end
+
+  def create_workspace(label, cwd)
+    call("workspace", "create", "--label", label, "--cwd", cwd)
+  end
+
+  def focus_workspace(id) = call("workspace", "focus", id)
+  def rename_tab(id, label) = call("tab", "rename", id, label)
+  def focus_tab(id) = call("tab", "focus", id)
+
+  def create_tab(workspace_id, label, cwd)
+    call("tab", "create", "--workspace", workspace_id, "--label", label, "--cwd", cwd)
+  end
+
+  def split(pane_id, direction, ratio, cwd)
+    call("pane", "split", pane_id, "--direction", direction,
+         "--ratio", format("%.4f", ratio), "--cwd", cwd, "--no-focus")
+  end
+
+  # Types the command into the pane's shell and presses Enter,
+  # exactly like tmuxinator's send-keys ... C-m.
+  def run(pane_id, command) = call("pane", "run", pane_id, command)
+
+  private
+
+  def call(*args)
+    if @dry_run
+      warn "  herdr #{args.shelljoin}"
+      return stub(args)
+    end
+
+    out, err, status = Open3.capture3("herdr", *args)
+    raise Error, "herdr #{args.shelljoin} failed: #{err.strip}" unless status.success?
+    return {} if out.strip.empty?
+
+    body = JSON.parse(out)
+    result = body["result"] || {}
+    raise Error, "herdr #{args.shelljoin}: #{result["message"] || out}" if result["type"] == "error"
+
+    result
+  rescue JSON::ParserError
+    raise Error, "herdr #{args.shelljoin}: unparsable response: #{out[0, 200]}"
+  end
+
+  # Fake ids so --dry-run can walk the whole plan.
+  def stub(args)
+    @seq = (@seq || 0) + 1
+    pane = { "pane_id" => "dry:p#{@seq}", "tab_id" => "dry:t#{@seq}" }
+    { "workspaces" => [], "workspace" => { "workspace_id" => "dry:w1" },
+      "tab" => { "tab_id" => "dry:t#{@seq}" }, "root_pane" => pane, "pane" => pane }
+  end
+end
+
+class Project
+  Window = Struct.new(:name, :root, :layout, :panes, keyword_init: true)
+
+  attr_reader :name, :root, :pre, :pre_window, :windows, :startup_window
+
+  def self.load(name)
+    require "tmuxinator"
+    path = Tmuxinator::Config.project(name)
+    abort "herdr-project: no tmuxinator project named #{name.inspect}" unless path && File.exist?(path)
+    new(Tmuxinator::Project.load(path))
+  end
+
+  def self.names
+    require "tmuxinator"
+    Tmuxinator::Config.configs
+  end
+
+  def initialize(tmuxinator_project)
+    yaml = tmuxinator_project.yaml
+    @name = yaml["name"] || tmuxinator_project.name
+    @root = expand(yaml["root"] || Dir.home)
+    @pre = Array(yaml["pre"] || yaml["on_project_start"]).reject { |c| blank?(c) }
+    @pre_window = yaml["pre_window"]
+    @startup_window = yaml["startup_window"]
+    @windows = Array(yaml["windows"]).map.with_index { |w, i| build_window(w, i) }
+  end
+
+  private
+
+  def build_window(entry, index)
+    label, body = entry.is_a?(Hash) ? entry.first : [entry.to_s, nil]
+    body = {} if body.nil?
+
+    if body.is_a?(Hash)
+      Window.new(name: label.to_s, root: expand(body["root"] || @root),
+                 layout: body["layout"], panes: Array(body["panes"]).map { |p| pane_commands(p) })
+    else
+      # `- editor: vim` or `- test: [cmd, cmd]` - one pane, possibly many commands.
+      Window.new(name: label.to_s, root: @root, layout: nil, panes: [pane_commands(body)])
+    end
+  rescue StandardError => e
+    abort "herdr-project: bad window ##{index + 1}: #{e.message}"
+  end
+
+  # A pane is a list of shell commands. Hash form is `- title: cmd`.
+  def pane_commands(entry)
+    entry = entry.values.first if entry.is_a?(Hash)
+    Array(entry).flat_map { |c| c.to_s.split("\n") }.reject { |c| blank?(c) }
+  end
+
+  def blank?(str) = str.nil? || str.to_s.strip.empty?
+  def expand(path) = File.expand_path(path.to_s)
+end
+
+# Turns a tmux layout name + pane count into a list of split instructions.
+# Each instruction says: split `from` (index of an already-placed pane) in
+# `direction`, leaving `ratio` of that area to the pane being split.
+class Layout
+  Split = Struct.new(:from, :direction, :ratio)
+
+  def self.plan(layout, pane_count)
+    return [] if pane_count < 2
+
+    case layout.to_s
+    when "main-vertical"   then main(pane_count, "right", "down")
+    when "main-horizontal" then main(pane_count, "down", "right")
+    when "even-vertical"   then even(pane_count, "down")
+    when "even-horizontal" then even(pane_count, "right")
+    else tiled(pane_count) # covers "tiled" and raw tmux layout strings
+    end
+  end
+
+  # Pane 0 keeps half; the rest share the other half in a single stack.
+  def self.main(count, first_direction, stack_direction)
+    splits = [Split.new(0, first_direction, 0.5)]
+    (2...count).each_with_index do |_, i|
+      remaining = count - 1 - i
+      splits << Split.new(i + 1, stack_direction, 1.0 / remaining)
+    end
+    splits
+  end
+
+  # Every pane gets an equal share along one axis.
+  def self.even(count, direction)
+    (0...count - 1).map { |i| Split.new(i, direction, 1.0 / (count - i)) }
+  end
+
+  # Alternate axes so panes stay roughly square.
+  def self.tiled(count)
+    (0...count - 1).map do |i|
+      Split.new(i, i.even? ? "right" : "down", 1.0 / (count - i))
+    end
+  end
+end
+
+class Runner
+  def initialize(project, herdr, dry_run: false, focus: true)
+    @project = project
+    @herdr = herdr
+    @dry_run = dry_run
+    @focus = focus
+  end
+
+  def run
+    existing = @herdr.workspaces.find { |w| w["label"] == @project.name }
+    if existing && !@dry_run
+      warn "herdr-project: workspace #{@project.name.inspect} already open, focusing it"
+      @herdr.focus_workspace(existing["workspace_id"])
+      return
+    end
+
+    run_pre
+    workspace = @herdr.create_workspace(@project.name, @project.root)
+    workspace_id = workspace.dig("workspace", "workspace_id")
+    first_tab = workspace.dig("tab", "tab_id")
+    first_pane = workspace.dig("root_pane", "pane_id")
+
+    startup_tab = nil
+    @project.windows.each_with_index do |window, index|
+      tab_id, pane = if index.zero?
+                       @herdr.rename_tab(first_tab, window.name)
+                       [first_tab, first_pane]
+                     else
+                       tab = @herdr.create_tab(workspace_id, window.name, window.root)
+                       [tab.dig("tab", "tab_id"), tab.dig("root_pane", "pane_id")]
+                     end
+      build_panes(window, pane)
+      startup_tab ||= tab_id if startup_window?(window, index)
+    end
+
+    return if @dry_run
+
+    @herdr.focus_tab(startup_tab) if startup_tab
+    @herdr.focus_workspace(workspace_id) if @focus
+  end
+
+  private
+
+  def run_pre
+    @project.pre.each do |command|
+      warn "herdr-project: pre: #{command}"
+      next if @dry_run
+
+      system(command, chdir: @project.root) || warn("herdr-project: pre command failed: #{command}")
+    end
+  end
+
+  def build_panes(window, first_pane)
+    panes = [first_pane]
+    Layout.plan(window.layout, window.panes.size).each do |split|
+      result = @herdr.split(panes[split.from], split.direction, split.ratio, window.root)
+      panes << result.dig("pane", "pane_id")
+    end
+
+    window.panes.each_with_index do |commands, i|
+      target = panes[i]
+      next unless target
+
+      Array(@project.pre_window).reject { |c| c.to_s.strip.empty? }.each { |c| @herdr.run(target, c) }
+      commands.each { |command| @herdr.run(target, command) }
+    end
+    panes
+  end
+
+  def startup_window?(window, index)
+    wanted = @project.startup_window
+    return index.zero? if wanted.nil?
+
+    window.name == wanted.to_s || (index + 1).to_s == wanted.to_s
+  end
+end
+
+dry_run = false
+focus = true
+name = nil
+
+args = ARGV.dup
+until args.empty?
+  case (arg = args.shift)
+  when "--dry-run", "-n" then dry_run = true
+  when "--no-focus" then focus = false
+  when "--list", "-l"
+    puts Project.names
+    exit 0
+  when "--help", "-h"
+    puts <<~USAGE
+      Usage: herdr-project <project> [--dry-run] [--no-focus]
+             herdr-project --list
+
+      Opens a tmuxinator project (~/.tmuxinator/<project>.yml) as a herdr
+      workspace: windows become tabs, panes become splits.
+    USAGE
+    exit 0
+  else
+    name = arg
+  end
+end
+
+abort "Usage: herdr-project <project> [--dry-run] [--no-focus]" unless name
+
+begin
+  project = Project.load(name)
+  Runner.new(project, Herdr.new(dry_run: dry_run), dry_run: dry_run, focus: focus).run
+rescue Herdr::Error => e
+  abort "herdr-project: #{e.message}"
+end

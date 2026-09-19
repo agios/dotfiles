@@ -26,6 +26,7 @@ brew 'rcm'
 brew 'xz', args: ['universal']
 brew 'the_silver_searcher'
 brew 'tmux'
+brew 'herdr'
 brew 'zsh'
 brew 'htop'
 brew 'glances'
